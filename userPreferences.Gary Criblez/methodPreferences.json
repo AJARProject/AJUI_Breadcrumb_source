@@ -1,0 +1,542 @@
+﻿{
+	"Sources/Methods/AJUI_BC_initProperties.4dm": {
+		"startSelection": 47,
+		"endSelection": 54,
+		"firstSelectedLine": 154,
+		"lastSelectedLine": 154,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.165Z"
+	},
+	"Sources/Methods/AJUI_BC_addSection.4dm": {
+		"startSelection": 7,
+		"endSelection": 7,
+		"firstSelectedLine": 156,
+		"lastSelectedLine": 156,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.166Z"
+	},
+	"Sources/Methods/AJUI_BC_initFormulas.4dm": {
+		"startSelection": 19,
+		"endSelection": 19,
+		"firstSelectedLine": 8,
+		"lastSelectedLine": 8,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.167Z"
+	},
+	"Sources/Methods/New AJUI_BreadCrumb.4dm": {
+		"startSelection": 35,
+		"endSelection": 35,
+		"firstSelectedLine": 24,
+		"lastSelectedLine": 24,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.167Z"
+	},
+	"Sources/Methods/AJUI_BC_draw.4dm": {
+		"startSelection": 70,
+		"endSelection": 70,
+		"firstSelectedLine": 158,
+		"lastSelectedLine": 158,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.168Z"
+	},
+	"Sources/Methods/AJUI_BC_mergeStates.4dm": {
+		"startSelection": 59,
+		"endSelection": 73,
+		"firstSelectedLine": 149,
+		"lastSelectedLine": 149,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.170Z"
+	},
+	"Sources/Methods/AJUI_BC_drawSVG.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 82,
+		"lastSelectedLine": 82,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.171Z"
+	},
+	"Sources/Methods/AJUI_BC_updateSection.4dm": {
+		"startSelection": 7,
+		"endSelection": 7,
+		"firstSelectedLine": 26,
+		"lastSelectedLine": 26,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.172Z"
+	},
+	"Sources/Methods/AJUI_BC_buildComponent.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 18,
+		"lastSelectedLine": 18,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.173Z"
+	},
+	"Sources/Methods/AJUI_BC_removeSection.4dm": {
+		"startSelection": 0,
+		"endSelection": 27,
+		"firstSelectedLine": 26,
+		"lastSelectedLine": 26,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.173Z"
+	},
+	"Sources/Methods/AJUI_BC_calcSizeSection.4dm": {
+		"startSelection": 32,
+		"endSelection": 34,
+		"firstSelectedLine": 75,
+		"lastSelectedLine": 75,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.174Z"
+	},
+	"Sources/Methods/Utl_fontStyle2Constant.4dm": {
+		"startSelection": 41,
+		"endSelection": 41,
+		"firstSelectedLine": 20,
+		"lastSelectedLine": 20,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.174Z"
+	},
+	"Sources/Methods/AJUI_BC_findSectionByID.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.175Z"
+	},
+	"Sources/Methods/AJUI_BC_calcSizeSimpleDivider.4dm": {
+		"startSelection": 146,
+		"endSelection": 146,
+		"firstSelectedLine": 45,
+		"lastSelectedLine": 45,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.175Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetModel.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.176Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetRTL.4dm": {
+		"startSelection": 42,
+		"endSelection": 42,
+		"firstSelectedLine": 5,
+		"lastSelectedLine": 5,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.177Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetMaxSectionToDraw.4dm": {
+		"startSelection": 23,
+		"endSelection": 23,
+		"firstSelectedLine": 21,
+		"lastSelectedLine": 21,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.177Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetDynamicSize.4dm": {
+		"startSelection": 7,
+		"endSelection": 0,
+		"firstSelectedLine": 24,
+		"lastSelectedLine": 18,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.178Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxHeight.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.179Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxWidth.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.179Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBgColor.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.179Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetCornerRadiusRight.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.180Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetCornerRadiusLeft.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.180Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBorderColor.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.181Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBorderSize.4dm": {
+		"startSelection": 7,
+		"endSelection": 7,
+		"firstSelectedLine": 27,
+		"lastSelectedLine": 27,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.181Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivFontSize.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.184Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowWidth.4dm": {
+		"startSelection": 5,
+		"endSelection": 5,
+		"firstSelectedLine": 15,
+		"lastSelectedLine": 15,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.186Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowColor.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 26,
+		"lastSelectedLine": 26,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.186Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowBorderSize.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.187Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionBgColor.4dm": {
+		"startSelection": 61,
+		"endSelection": 34,
+		"firstSelectedLine": 6,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.187Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontColor.4dm": {
+		"startSelection": 48,
+		"endSelection": 48,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.188Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontSize.4dm": {
+		"startSelection": 47,
+		"endSelection": 47,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.188Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontName.4dm": {
+		"startSelection": 47,
+		"endSelection": 47,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.189Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontStyle.4dm": {
+		"startSelection": 48,
+		"endSelection": 48,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.189Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetReplacingColor.4dm": {
+		"startSelection": 10,
+		"endSelection": 24,
+		"firstSelectedLine": 21,
+		"lastSelectedLine": 21,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.190Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetDividerPaddingH.4dm": {
+		"startSelection": 30,
+		"endSelection": 30,
+		"firstSelectedLine": 25,
+		"lastSelectedLine": 25,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.190Z"
+	},
+	"Sources/Methods/AJUI_BC_setCurrentSection.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 34,
+		"lastSelectedLine": 34,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.191Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetLastSectWithArrow.4dm": {
+		"startSelection": 18,
+		"endSelection": 18,
+		"firstSelectedLine": 3,
+		"lastSelectedLine": 3,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.191Z"
+	},
+	"Sources/Methods/AJUI_BC_resetState.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 28,
+		"lastSelectedLine": 28,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.192Z"
+	},
+	"Sources/Methods/AJUI_BC_resetAllStates.4dm": {
+		"startSelection": 33,
+		"endSelection": 33,
+		"firstSelectedLine": 31,
+		"lastSelectedLine": 31,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.192Z"
+	},
+	"Sources/Methods/AJUI_BC_checkNextPosition.4dm": {
+		"startSelection": 42,
+		"endSelection": 42,
+		"firstSelectedLine": 23,
+		"lastSelectedLine": 23,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.193Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectBorderColor.4dm": {
+		"startSelection": 0,
+		"endSelection": 39,
+		"firstSelectedLine": 23,
+		"lastSelectedLine": 24,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.193Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionBorderSize.4dm": {
+		"startSelection": 13,
+		"endSelection": 13,
+		"firstSelectedLine": 21,
+		"lastSelectedLine": 21,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.193Z"
+	},
+	"Sources/Methods/AJUI_BC_borderArrowH.4dm": {
+		"startSelection": 13,
+		"endSelection": 15,
+		"firstSelectedLine": 25,
+		"lastSelectedLine": 25,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.194Z"
+	},
+	"Sources/Methods/AJUI_BC_loadPicture.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 36,
+		"lastSelectedLine": 36,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.194Z"
+	},
+	"Sources/Methods/AJUI_BC_resizePicture.4dm": {
+		"startSelection": 28,
+		"endSelection": 28,
+		"firstSelectedLine": 36,
+		"lastSelectedLine": 36,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.195Z"
+	},
+	"Sources/Methods/AJUI_BC_templateImport.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 64,
+		"lastSelectedLine": 64,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.195Z"
+	},
+	"Sources/Methods/AJUI_BC_templateExport.4dm": {
+		"startSelection": 11,
+		"endSelection": 24,
+		"firstSelectedLine": 42,
+		"lastSelectedLine": 42,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.196Z"
+	},
+	"Sources/Methods/AJUI_BC_loadTemplates.4dm": {
+		"startSelection": 0,
+		"endSelection": 5,
+		"firstSelectedLine": 19,
+		"lastSelectedLine": 19,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.196Z"
+	},
+	"Sources/Methods/AJUI_BC_removeAllSections.4dm": {
+		"startSelection": 41,
+		"endSelection": 41,
+		"firstSelectedLine": 3,
+		"lastSelectedLine": 3,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.196Z"
+	},
+	"Sources/Methods/AJUI_BC_removePropExceptions.4dm": {
+		"startSelection": 51,
+		"endSelection": 51,
+		"firstSelectedLine": 30,
+		"lastSelectedLine": 30,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.198Z"
+	},
+	"Sources/Methods/AJUI_BC_removePropException.4dm": {
+		"startSelection": 29,
+		"endSelection": 0,
+		"firstSelectedLine": 19,
+		"lastSelectedLine": 19,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.199Z"
+	},
+	"Sources/Methods/AJUI_BC_removePropTypeException.4dm": {
+		"startSelection": 9,
+		"endSelection": 9,
+		"firstSelectedLine": 24,
+		"lastSelectedLine": 24,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.199Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetPictureOpacity.4dm": {
+		"startSelection": 47,
+		"endSelection": 36,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.200Z"
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxCentered.4dm": {
+		"startSelection": 44,
+		"endSelection": 44,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.200Z"
+	},
+	"Sources/Methods/AJUI_BC_checkValidCallback.4dm": {
+		"startSelection": 7,
+		"endSelection": 7,
+		"firstSelectedLine": 39,
+		"lastSelectedLine": 39,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.200Z"
+	},
+	"Sources/Methods/AJUI_BC_PropertyCol.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 20,
+		"lastSelectedLine": 20,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.201Z"
+	},
+	"Sources/Methods/AJUI_BC_grpBtnAutoValues.4dm": {
+		"startSelection": 17,
+		"endSelection": 17,
+		"firstSelectedLine": 20,
+		"lastSelectedLine": 20,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.201Z"
+	},
+	"Sources/Methods/AJUI_BC_removeCurrent.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:52:35.202Z"
+	},
+	"Sources/Methods/AJUI_BC_info.4dm": {
+		"startSelection": 25,
+		"endSelection": 25,
+		"firstSelectedLine": 23,
+		"lastSelectedLine": 23,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-01-22T08:54:22.762Z"
+	}
+}

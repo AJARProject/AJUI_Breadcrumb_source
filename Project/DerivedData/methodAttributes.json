@@ -1,0 +1,434 @@
+﻿{
+	"methods": {
+		"AJUI_BC_mergeStates": {
+			"timeStamp": "2020-01-22T08:52:35.170Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_PropertyCol": {
+			"timeStamp": "2020-01-22T08:52:35.201Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBgColor": {
+			"timeStamp": "2020-01-22T08:52:35.179Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetLastSectWithArrow": {
+			"timeStamp": "2020-01-22T08:52:35.191Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_resizePicture": {
+			"timeStamp": "2020-01-22T08:52:35.195Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_calcSizeSimpleDivider": {
+			"timeStamp": "2020-01-22T08:52:35.175Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetReplacingColor": {
+			"timeStamp": "2020-01-22T08:52:35.190Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetArrowColor": {
+			"timeStamp": "2020-01-22T08:52:35.186Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_removeSection": {
+			"timeStamp": "2020-01-22T08:52:35.173Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetPaddingH": {
+			"timeStamp": "2020-01-22T08:52:35.182Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_removePropTypeException": {
+			"timeStamp": "2020-01-22T08:52:35.199Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetName": {
+			"timeStamp": "2020-01-22T08:52:35.176Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_buildComponent": {
+			"timeStamp": "2020-01-22T08:52:35.173Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionFontSize": {
+			"timeStamp": "2020-01-22T08:52:35.188Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetPictureOpacity": {
+			"timeStamp": "2020-01-22T08:52:35.200Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_borderArrowH": {
+			"timeStamp": "2020-01-22T08:52:35.194Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivFontSize": {
+			"timeStamp": "2020-01-22T08:52:35.184Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_loadTemplates": {
+			"timeStamp": "2020-01-22T08:52:35.196Z",
+			"attributes": {
+				"invisible": true,
+				"shared": true
+			}
+		},
+		"AJUI_BC_GetSetCornerRadiusRight": {
+			"timeStamp": "2020-01-22T08:52:35.180Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_removePropExceptions": {
+			"timeStamp": "2020-01-22T08:52:35.198Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_hide": {
+			"timeStamp": "2020-01-22T08:52:35.198Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionBgColor": {
+			"timeStamp": "2020-01-22T08:52:35.187Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_setCurrentSection": {
+			"timeStamp": "2020-01-22T08:52:35.191Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBoxCentered": {
+			"timeStamp": "2020-01-22T08:52:35.200Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_checkNextPosition": {
+			"timeStamp": "2020-01-22T08:52:35.193Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectBorderColor": {
+			"timeStamp": "2020-01-22T08:52:35.193Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_calcSizeSection": {
+			"timeStamp": "2020-01-22T08:52:35.174Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetArrowWidth": {
+			"timeStamp": "2020-01-22T08:52:35.186Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetMaxSectionToDraw": {
+			"timeStamp": "2020-01-22T08:52:35.177Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivString": {
+			"timeStamp": "2020-01-22T08:52:35.184Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_info": {
+			"timeStamp": "2020-01-22T08:57:51.175Z",
+			"attributes": {
+				"invisible": true,
+				"shared": true,
+				"lang": "en"
+			}
+		},
+		"AJUI_BC_resetAllStates": {
+			"timeStamp": "2020-01-22T08:52:35.192Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetFirstSectWithArro": {
+			"timeStamp": "2020-01-22T08:52:35.197Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_findSectionByID": {
+			"timeStamp": "2020-01-22T08:52:35.175Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionFontStyle": {
+			"timeStamp": "2020-01-22T08:52:35.189Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_removeCurrent": {
+			"timeStamp": "2020-01-22T08:52:35.202Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetArrowBorderSize": {
+			"timeStamp": "2020-01-22T08:52:35.187Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetModel": {
+			"timeStamp": "2020-01-22T08:52:35.176Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_resetState": {
+			"timeStamp": "2020-01-22T08:52:35.192Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivFontName": {
+			"timeStamp": "2020-01-22T08:52:35.185Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBorderSize": {
+			"timeStamp": "2020-01-22T08:52:35.181Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionBorderSize": {
+			"timeStamp": "2020-01-22T08:52:35.193Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"Utl_fontStyle2Constant": {
+			"timeStamp": "2020-01-22T08:52:35.174Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetCornerRadiusLeft": {
+			"timeStamp": "2020-01-22T08:52:35.180Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_templateExport": {
+			"timeStamp": "2020-01-22T08:52:35.196Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionFontName": {
+			"timeStamp": "2020-01-22T08:52:35.189Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivFontStyle": {
+			"timeStamp": "2020-01-22T08:52:35.185Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_initProperties": {
+			"timeStamp": "2020-01-22T08:52:35.165Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_templateImport": {
+			"timeStamp": "2020-01-22T08:52:35.195Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_addSection": {
+			"timeStamp": "2020-01-22T08:52:35.166Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_updateSection": {
+			"timeStamp": "2020-01-22T08:52:35.172Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDynamicSize": {
+			"timeStamp": "2020-01-22T08:52:35.178Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_show": {
+			"timeStamp": "2020-01-22T08:52:35.197Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBoxWidth": {
+			"timeStamp": "2020-01-22T08:52:35.179Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_loadPicture": {
+			"timeStamp": "2020-01-22T08:52:35.194Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetRTL": {
+			"timeStamp": "2020-01-22T08:52:35.177Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBoxHeight": {
+			"timeStamp": "2020-01-22T08:52:35.179Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetPaddingV": {
+			"timeStamp": "2020-01-22T08:52:35.183Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_grpBtnAutoValues": {
+			"timeStamp": "2020-01-22T08:52:35.201Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_initFormulas": {
+			"timeStamp": "2020-01-22T08:52:35.167Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivMargin": {
+			"timeStamp": "2020-01-22T08:52:35.183Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_drawSVG": {
+			"timeStamp": "2020-01-22T08:52:35.171Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDividerPaddingH": {
+			"timeStamp": "2020-01-22T08:52:35.190Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetSectionFontColor": {
+			"timeStamp": "2020-01-22T08:52:35.188Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetDivFontColor": {
+			"timeStamp": "2020-01-22T08:52:35.185Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_checkValidCallback": {
+			"timeStamp": "2020-01-22T08:52:35.200Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"New AJUI_BreadCrumb": {
+			"timeStamp": "2020-01-22T08:52:35.167Z",
+			"attributes": {
+				"invisible": true,
+				"shared": true
+			}
+		},
+		"AJUI_BC_removePropException": {
+			"timeStamp": "2020-01-22T08:52:35.199Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_removeAllSections": {
+			"timeStamp": "2020-01-22T08:52:35.196Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_draw": {
+			"timeStamp": "2020-01-22T08:52:35.168Z",
+			"attributes": {
+				"invisible": true
+			}
+		},
+		"AJUI_BC_GetSetBorderColor": {
+			"timeStamp": "2020-01-22T08:52:35.181Z",
+			"attributes": {
+				"invisible": true
+			}
+		}
+	}
+}

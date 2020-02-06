@@ -1,0 +1,428 @@
+﻿{
+	"Sources/Methods/AJUI_BC_initProperties.4dm": {
+		"left": 271,
+		"top": 312,
+		"width": 1246,
+		"height": 1339
+	},
+	"Sources/Methods/AJUI_BC_addSection.4dm": {
+		"left": 1375,
+		"top": 221,
+		"width": 1525,
+		"height": 1298
+	},
+	"Sources/Methods/AJUI_BC_initFormulas.4dm": {
+		"left": 628,
+		"top": 128,
+		"width": 1224,
+		"height": 1273
+	},
+	"Sources/Methods/New AJUI_BreadCrumb.4dm": {
+		"left": 47,
+		"top": 285,
+		"width": 1611,
+		"height": 1114
+	},
+	"Sources/Methods/AJUI_BC_draw.4dm": {
+		"left": 293,
+		"top": 487,
+		"width": 2155,
+		"height": 1034
+	},
+	"Sources/Methods/AJUI_BC_mergeStates.4dm": {
+		"left": 739,
+		"top": 293,
+		"width": 1246,
+		"height": 1364
+	},
+	"Sources/Methods/AJUI_BC_drawSVG.4dm": {
+		"left": 720,
+		"top": 411,
+		"width": 1735,
+		"height": 1124
+	},
+	"Sources/Methods/AJUI_BC_updateSection.4dm": {
+		"left": 528,
+		"top": 335,
+		"width": 1224,
+		"height": 1273
+	},
+	"Sources/Methods/AJUI_BC_buildComponent.4dm": {
+		"left": 80,
+		"top": 537,
+		"width": 946,
+		"height": 862
+	},
+	"Sources/Methods/AJUI_BC_info.4dm": {
+		"left": 1365,
+		"top": 274,
+		"width": 2337,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_removeSection.4dm": {
+		"left": 1474,
+		"top": 422,
+		"width": 1200,
+		"height": 1047
+	},
+	"Sources/Methods/AJUI_BC_calcSizeSection.4dm": {
+		"left": 171,
+		"top": 226,
+		"width": 1981,
+		"height": 1316
+	},
+	"Sources/Methods/Utl_fontStyle2Constant.4dm": {
+		"left": 918,
+		"top": 191,
+		"width": 2058,
+		"height": 1076
+	},
+	"Sources/Methods/AJUI_BC_findSectionByID.4dm": {
+		"left": 1504,
+		"top": 386,
+		"width": 1217,
+		"height": 1013
+	},
+	"Sources/Methods/AJUI_BC_calcSizeSimpleDivider.4dm": {
+		"left": 525,
+		"top": 310,
+		"width": 2162,
+		"height": 1226
+	},
+	"Sources/Methods/AJUI_BC_GetSetName.4dm": {
+		"left": 321,
+		"top": 209,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetModel.4dm": {
+		"left": 920,
+		"top": 438,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetRTL.4dm": {
+		"left": 1670,
+		"top": 352,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetMaxSectionToDraw.4dm": {
+		"left": 127,
+		"top": 363,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDynamicSize.4dm": {
+		"left": 379,
+		"top": 433,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxHeight.4dm": {
+		"left": 1236,
+		"top": 227,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxWidth.4dm": {
+		"left": 1367,
+		"top": 219,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetBgColor.4dm": {
+		"left": 1376,
+		"top": 224,
+		"width": 1368,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetCornerRadiusRight.4dm": {
+		"left": 1456,
+		"top": 210,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetCornerRadiusLeft.4dm": {
+		"left": 1478,
+		"top": 289,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetBorderColor.4dm": {
+		"left": 1688,
+		"top": 478,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetBorderSize.4dm": {
+		"left": 1496,
+		"top": 260,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetPaddingH.4dm": {
+		"left": 1263,
+		"top": 340,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetPaddingV.4dm": {
+		"left": 504,
+		"top": 282,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivMargin.4dm": {
+		"left": 269,
+		"top": 192,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivString.4dm": {
+		"left": 332,
+		"top": 190,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivFontSize.4dm": {
+		"left": 38,
+		"top": 196,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivFontColor.4dm": {
+		"left": 117,
+		"top": 247,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivFontName.4dm": {
+		"left": 932,
+		"top": 273,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetDivFontStyle.4dm": {
+		"left": 932,
+		"top": 273,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowWidth.4dm": {
+		"left": 1353,
+		"top": 272,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowColor.4dm": {
+		"left": 504,
+		"top": 401,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetArrowBorderSize.4dm": {
+		"left": 1544,
+		"top": 228,
+		"width": 1309,
+		"height": 1363
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionBgColor.4dm": {
+		"left": 47,
+		"top": 356,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontColor.4dm": {
+		"left": 920,
+		"top": 250,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontSize.4dm": {
+		"left": 1338,
+		"top": 177,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontName.4dm": {
+		"left": 1338,
+		"top": 177,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionFontStyle.4dm": {
+		"left": 1338,
+		"top": 177,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetReplacingColor.4dm": {
+		"left": 1118,
+		"top": 320,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetDividerPaddingH.4dm": {
+		"left": 447,
+		"top": 452,
+		"width": 1108,
+		"height": 1104
+	},
+	"Sources/Methods/AJUI_BC_setCurrentSection.4dm": {
+		"left": 1099,
+		"top": 149,
+		"width": 1903,
+		"height": 1407
+	},
+	"Sources/Methods/AJUI_BC_GetSetLastSectWithArrow.4dm": {
+		"left": 1233,
+		"top": 235,
+		"width": 967,
+		"height": 1068
+	},
+	"Sources/Methods/AJUI_BC_resetState.4dm": {
+		"left": 1398,
+		"top": 404,
+		"width": 1217,
+		"height": 1013
+	},
+	"Sources/Methods/AJUI_BC_resetAllStates.4dm": {
+		"left": 1827,
+		"top": 445,
+		"width": 1108,
+		"height": 1104
+	},
+	"Sources/Methods/AJUI_BC_checkNextPosition.4dm": {
+		"left": 1077,
+		"top": 422,
+		"width": 2162,
+		"height": 1213
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectBorderColor.4dm": {
+		"left": 733,
+		"top": 386,
+		"width": 2162,
+		"height": 1238
+	},
+	"Sources/Methods/AJUI_BC_GetSetSectionBorderSize.4dm": {
+		"left": 1482,
+		"top": 271,
+		"width": 1246,
+		"height": 1364
+	},
+	"Sources/Methods/AJUI_BC_borderArrowH.4dm": {
+		"left": 1098,
+		"top": 317,
+		"width": 2664,
+		"height": 1117
+	},
+	"Sources/Methods/AJUI_BC_loadPicture.4dm": {
+		"left": 1047,
+		"top": 341,
+		"width": 1639,
+		"height": 1267
+	},
+	"Sources/Methods/AJUI_BC_resizePicture.4dm": {
+		"left": 150,
+		"top": 204,
+		"width": 2155,
+		"height": 1034
+	},
+	"Sources/Methods/AJUI_BC_templateImport.4dm": {
+		"left": 1038,
+		"top": 320,
+		"width": 2410,
+		"height": 1267
+	},
+	"Sources/Methods/AJUI_BC_templateExport.4dm": {
+		"left": 1524,
+		"top": 256,
+		"width": 1078,
+		"height": 967
+	},
+	"Sources/Methods/AJUI_BC_loadTemplates.4dm": {
+		"left": 114,
+		"top": 347,
+		"width": 1334,
+		"height": 1151
+	},
+	"Sources/Methods/AJUI_BC_removeAllSections.4dm": {
+		"left": 1022,
+		"top": 430,
+		"width": 1584,
+		"height": 989
+	},
+	"Sources/Methods/AJUI_BC_GetSetFirstSectWithArro.4dm": {
+		"left": 175,
+		"top": 280,
+		"width": 1600,
+		"height": 1184
+	},
+	"Sources/Methods/AJUI_BC_show.4dm": {
+		"left": 194,
+		"top": 198,
+		"width": 967,
+		"height": 849
+	},
+	"Sources/Methods/AJUI_BC_hide.4dm": {
+		"left": 625,
+		"top": 706,
+		"width": 1180,
+		"height": 793
+	},
+	"Sources/Methods/AJUI_BC_removePropExceptions.4dm": {
+		"left": 272,
+		"top": 803,
+		"width": 1777,
+		"height": 619
+	},
+	"Sources/Methods/AJUI_BC_removePropException.4dm": {
+		"left": 169,
+		"top": 467,
+		"width": 1959,
+		"height": 841
+	},
+	"Sources/Methods/AJUI_BC_removePropTypeException.4dm": {
+		"left": 618,
+		"top": 103,
+		"width": 1404,
+		"height": 1108
+	},
+	"Sources/Methods/AJUI_BC_GetSetPictureOpacity.4dm": {
+		"left": 414,
+		"top": 170,
+		"width": 1339,
+		"height": 1200
+	},
+	"Sources/Methods/AJUI_BC_GetSetBoxCentered.4dm": {
+		"left": 443,
+		"top": 573,
+		"width": 2510,
+		"height": 1033
+	},
+	"Sources/Methods/AJUI_BC_checkValidCallback.4dm": {
+		"left": 1715,
+		"top": 315,
+		"width": 1224,
+		"height": 1273
+	},
+	"Sources/Methods/AJUI_BC_PropertyCol.4dm": {
+		"left": 97,
+		"top": 682,
+		"width": 2512,
+		"height": 879
+	},
+	"Sources/Methods/AJUI_BC_grpBtnAutoValues.4dm": {
+		"left": 271,
+		"top": 287,
+		"width": 1246,
+		"height": 1364
+	},
+	"Sources/Methods/AJUI_BC_removeCurrent.4dm": {
+		"left": 97,
+		"top": 682,
+		"width": 2512,
+		"height": 879
+	}
+}

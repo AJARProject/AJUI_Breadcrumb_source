@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="AJUI_BreadCrumb" uuid="58BE7F22B28B4A2C91FB71FE32B01DB6" collation_locale="fr-ch">
+	<schema name="DEFAULT_SCHEMA"/>
+	<base_extra __stringCompHash="icu:63.1.0" __keywordBuildingHash="icu:63.1.0" package_name="AJUI_BreadCrumb" structure_file_name="AJUI_BreadCrumb" data_file_path=":AJUI_BreadCrumb.4DD">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>
