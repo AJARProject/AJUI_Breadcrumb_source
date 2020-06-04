@@ -20,6 +20,6 @@ End if
 
 C_TEXT:C284($0)
 
-$version_t:="1.2.0-Build32"  // Wed, 22 Jan 2020 08:57:51 GMT
+$version_t:="1.2.0-Build33"  // Thu, 04 Jun 2020 12:13:38 GMT
 
 $0:="AJUI BreadCrumb (v18): "+$version_t
