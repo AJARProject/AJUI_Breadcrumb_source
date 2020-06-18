@@ -2,7 +2,7 @@
   // AJUI_BC_addSection ( $id { ; $section } ) -> return
   //
   // $1 : (text) section id
-  // $2 : (text) (optional) section prebuilded
+  // $2 : (object) (optional) section prebuilded
   //
   // This method will add a new section in the instance. You can fix the properties with the prebuild section
   // Each property not specified will receive the default value

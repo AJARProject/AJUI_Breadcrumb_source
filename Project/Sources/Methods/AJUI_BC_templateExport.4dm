@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true}
-  // AJUI_BC_templateExport ( $templateName { ; $exportPath } ) -> return
+  // AJUI_BC_templateExport ( $templateName { ; $exportPath } ) 
   //
   // $1 : (text) AJUI BreadCrumb template name
   // $2 : (text) (optional) Path to export

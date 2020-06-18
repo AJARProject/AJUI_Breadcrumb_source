@@ -1,7 +1,7 @@
 //%attributes = {"invisible":true}
   // AJUI_BC_GetSetBoxCentered ( {$centered} ) -> return
   //
-  // $1 : (boolean) activate/inactivate
+  // $1 : (boolean) (optionnal) activate/inactivate
   // $0 : (boolean) (return) current value
   //
   // Getter and setter to activate/inactivate the centering of the box

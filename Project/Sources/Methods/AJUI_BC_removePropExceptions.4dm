@@ -1,7 +1,7 @@
 //%attributes = {"invisible":true}
   // AJUI_BC_removePropExceptions ( $property  ) 
   //
-  // $1 : (text) property name
+  // $1 : (text) formula name
   //
   // This method remove each exception for a property
 
