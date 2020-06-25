@@ -40,6 +40,7 @@ If ($pos>=0)
 		For each ($section;This:C1470.breadCrumb.sectionList)
 			If ($section.id=$id)
 				$section.type:="current"
+				This:C1470.breadCrumb.internalUse.selectedBtnID:=$id
 			Else 
 				$section.type:="standard"
 			End if 
