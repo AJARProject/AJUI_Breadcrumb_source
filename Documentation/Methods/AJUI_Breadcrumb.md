@@ -11,7 +11,7 @@ Exposes the Breadcrumb class at the host base. Replace New AJUI_BreadCrumb since
 
 | Parameter | Type | In/Out | Description |
 | --------- | ---- | ------ | ----------- |
-| template | object | in | Properties :<br> - (text) templateName :  Name of the folder containing the JSON file to import (template). If the file is not found, the method will return a new instance of AJUI BreadCrumb.<br> - (text) (optional) templatePath : You can specify a path to retrieve the file otherwise, the component will search in the default folder located in the resources (.../Resources/AJUI_BreadCrumb_Templates/). |
+| template | object | in | Properties :<br> - (text) templateName :  Name of the folder containing the JSON file to import (template). If the file is not found, the method will return a new instance of AJUI BreadCrumb.<br> - (text) (optional) templatePath : You can specify a path to retrieve the file otherwise, the component will search in the default folder located in the resources (.../Resources/AJUI_BreadCrumb_Templates/). You can use "#" to designate the 4D resources folder in your path. |
 | instance | object | out | instance of AJUI_BreadCrumb with all the member functions |
 
 ## Example

@@ -45,7 +45,18 @@ If (Count parameters:C259=2)
 			$pathName:=Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$fileName
 		End if 
 	Else 
-		$pathName:=$2+$fileName
+		If ($2="#@")
+			$pathName:=Replace string:C233($2;"#";Get 4D folder:C485(Current resources folder:K5:16;*))
+		Else 
+			$pathName:=$2
+		End if 
+		
+		$folder:=Folder:C1567($pathName+$templateName+Folder separator:K24:12;fk platform path:K87:2)
+		If ($folder.exists)
+			$pathName:=$folder.platformPath+$fileName
+		Else 
+			$pathName:=$pathName+$fileName
+		End if 
 	End if 
 Else 
 	$folder:=Folder:C1567(Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$templateName+Folder separator:K24:12;fk platform path:K87:2)

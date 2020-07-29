@@ -29,6 +29,9 @@ $json_t:=""
 
 If (Count parameters:C259=1)
 	$folderTargetPath:=$1
+	If ($folderTargetPath="#@")
+		$folderTargetPath:=Replace string:C233($folderTargetPath;"#";Get 4D folder:C485(Current resources folder:K5:16;*))
+	End if 
 Else 
 	$folderTargetPath:=Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12
 End if 
