@@ -126,10 +126,8 @@ If ($pos>=0)
 		End if 
 		
 		  //onClickCB
-		If ($section_obj.onClickCB#Null:C1517)
-			If (Value type:C1509($section_obj.onClickCB)#Is text:K8:3)
-				ALERT:C41("String required for the property onClickCB !")
-			Else 
+		Case of 
+			: (Value type:C1509($section_obj.onClickCB)=Is text:K8:3)
 				This:C1470.breadCrumb.sectionList[$pos].onClickCB:=$section_obj.onClickCB
 				If ($section_obj.onClickCB#"")
 					ARRAY TEXT:C222($_methods;0)
@@ -142,8 +140,14 @@ If ($pos>=0)
 						End if 
 					End if 
 				End if 
-			End if 
-		End if 
+			: (Value type:C1509($section_obj.onClickCB)=Is object:K8:27)
+				This:C1470.breadCrumb.sectionList[$pos].onClickCB:=$section_obj.onClickCB
+			: ($section_obj.onClickCB=Null:C1517)
+				  //nothing to do
+			Else 
+				ALERT:C41("String or formula required for the property onClickCB !")
+		End case 
+		
 		
 		  //onClickCBParams
 		If ($section_obj.onClickCBParams#Null:C1517)
@@ -155,10 +159,9 @@ If ($pos>=0)
 		End if 
 		
 		  //onDoubleClickCB
-		If ($section_obj.onDoubleClickCB#Null:C1517)
-			If (Value type:C1509($section_obj.onDoubleClickCB)#Is text:K8:3)
-				ALERT:C41("String required for the property onDoubleClickCB !")
-			Else 
+		
+		Case of 
+			: (Value type:C1509($section_obj.onDoubleClickCB)=Is text:K8:3)
 				This:C1470.breadCrumb.sectionList[$pos].onDoubleClickCB:=$section_obj.onDoubleClickCB
 				If ($section_obj.onDoubleClickCB#"")
 					ARRAY TEXT:C222($_methods;0)
@@ -171,8 +174,14 @@ If ($pos>=0)
 						End if 
 					End if 
 				End if 
-			End if 
-		End if 
+			: (Value type:C1509($section_obj.onDoubleClickCB)=Is object:K8:27)
+				This:C1470.breadCrumb.sectionList[$pos].onDoubleClickCB:=$section_obj.onDoubleClickCB
+			: ($section_obj.onDoubleClickCB=Null:C1517)
+				  //nothing to do
+			Else 
+				ALERT:C41("String or formula required for the property onDoubleClickCB !")
+		End case 
+		
 		
 		  //onDoubleClickCBParams
 		If ($section_obj.onDoubleClickCBParams#Null:C1517)

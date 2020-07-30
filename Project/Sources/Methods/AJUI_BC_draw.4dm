@@ -17,7 +17,8 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($instance_obj;$toDraw_obj;$section)
-C_TEXT:C284($name;$callback;$sectionID;$sectionType;$model)
+C_TEXT:C284($name;$sectionID;$sectionType;$model)
+C_VARIANT:C1683($callback)
 C_BOOLEAN:C305($skip;$firstSectionWithArrow)
 C_PICTURE:C286($pict)
 C_LONGINT:C283($cRadiusLeft;$cRadiusRight;$borderSize;$position;$maxHeight)
@@ -232,22 +233,37 @@ If (Not:C34($skip))  //dont redraw if skip
 		
 		Case of 
 			: (Form event code:C388=On Mouse Up:K2:58)
-				
 				$callback:=$instance_obj.breadCrumb.sectionList[$position].onClickCB
 				  //check section disable
 				If ($position>=0)
 					If (Not:C34($instance_obj.breadCrumb.sectionList[$position].disable))
-						If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
-							If (AJUI_BC_checkValidCallback ($callback))
-								$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-								If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null:C1517)
-									EXECUTE METHOD:C1007($callback)
-								Else 
-									EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onClickCBParams)
+						
+						Case of 
+							: (Value type:C1509($callback)=Is text:K8:3)
+								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+									If (AJUI_BC_checkValidCallback ($callback))
+										$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
+										If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null:C1517)
+											EXECUTE METHOD:C1007($callback)
+										Else 
+											EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onClickCBParams)
+										End if 
+										$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+									End if 
 								End if 
-								$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
-							End if 
-						End if 
+							: (Value type:C1509($callback)=Is object:K8:27)
+								If ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+									$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
+									If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null:C1517)
+										$callback.call()
+									Else 
+										C_OBJECT:C1216($params)
+										$params:=$instance_obj.breadCrumb.sectionList[$position].onClickCBParams
+										$callback.call(Null:C1517;$params)
+									End if 
+									$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+								End if 
+						End case 
 					End if 
 				End if 
 				
@@ -257,20 +273,35 @@ If (Not:C34($skip))  //dont redraw if skip
 				  //check section disable
 				If ($position>=0)
 					If (Not:C34($instance_obj.breadCrumb.sectionList[$position].disable))
-						If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
-							If (AJUI_BC_checkValidCallback ($callback))
-								$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-								If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null:C1517)
-									EXECUTE METHOD:C1007($callback)
-								Else 
-									EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams)
+						
+						Case of 
+							: (Value type:C1509($callback)=Is text:K8:3)
+								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+									If (AJUI_BC_checkValidCallback ($callback))
+										$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
+										If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null:C1517)
+											EXECUTE METHOD:C1007($callback)
+										Else 
+											EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams)
+										End if 
+										$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+									End if 
 								End if 
-								$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
-							End if 
-						End if 
+							: (Value type:C1509($callback)=Is object:K8:27)
+								If ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+									$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
+									If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null:C1517)
+										$callback.call()
+									Else 
+										C_OBJECT:C1216($params)
+										$params:=$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams
+										$callback.call(Null:C1517;$params)
+									End if 
+									$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+								End if 
+						End case 
 					End if 
 				End if 
-				
 		End case 
 	End if 
 End if 

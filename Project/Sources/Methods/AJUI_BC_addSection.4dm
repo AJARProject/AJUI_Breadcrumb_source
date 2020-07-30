@@ -139,13 +139,8 @@ If ($id#"")
 			End if 
 			
 			  //onClickCB
-			If ($section_obj.onClickCB=Null:C1517)
-				$section_obj.onClickCB:=""
-			Else 
-				If (Value type:C1509($section_obj.onClickCB)#Is text:K8:3)
-					$section_obj.onClickCB:=""
-					ALERT:C41("String required for the property onClickCB !")
-				Else 
+			Case of 
+				: (Value type:C1509($section_obj.onClickCB)=Is text:K8:3)
 					If ($section_obj.onClickCB#"")
 						ARRAY TEXT:C222($_methods;0)
 						METHOD GET NAMES:C1166($_methods;$section_obj.onClickCB;*)
@@ -157,8 +152,16 @@ If ($id#"")
 							End if 
 						End if 
 					End if 
-				End if 
-			End if 
+				: (Value type:C1509($section_obj.onClickCB)=Is object:K8:27)
+					  //nothing to do
+				: ($section_obj.onClickCB=Null:C1517)
+					$section_obj.onClickCB:=""
+				Else 
+					$section_obj.onClickCB:=""
+					ALERT:C41("String or formula required for the property onClickCB !")
+			End case 
+			
+			
 			
 			  //onClickCBParams
 			If ($section_obj.onClickCBParams#Null:C1517)
@@ -169,13 +172,8 @@ If ($id#"")
 			End if 
 			
 			  //onDoubleClickCB
-			If ($section_obj.onDoubleClickCB=Null:C1517)
-				$section_obj.onDoubleClickCB:=""
-			Else 
-				If (Value type:C1509($section_obj.onDoubleClickCB)#Is text:K8:3)
-					$section_obj.onDoubleClickCB:=""
-					ALERT:C41("String required for the property onDoubleClickCB !")
-				Else 
+			Case of 
+				: (Value type:C1509($section_obj.onDoubleClickCB)=Is text:K8:3)
 					If ($section_obj.onDoubleClickCB#"")
 						ARRAY TEXT:C222($_methods;0)
 						METHOD GET NAMES:C1166($_methods;$section_obj.onDoubleClickCB;*)
@@ -187,8 +185,15 @@ If ($id#"")
 							End if 
 						End if 
 					End if 
-				End if 
-			End if 
+				: (Value type:C1509($section_obj.onDoubleClickCB)=Is object:K8:27)
+					  //nothing to do
+				: ($section_obj.onDoubleClickCB=Null:C1517)
+					$section_obj.onDoubleClickCB:=""
+				Else 
+					$section_obj.onDoubleClickCB:=""
+					ALERT:C41("String or formula required for the property onDoubleClickCB !")
+			End case 
+			
 			
 			  //onDoubleClickCBParams
 			If ($section_obj.onDoubleClickCBParams#Null:C1517)
