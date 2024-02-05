@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><preferences stamp="3">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="4">
 	<com.4d>
 		<deployment>
 			<options/>
@@ -8,5 +8,8 @@
 				<client_server use_encryption="false"/>
 			</network>
 		</server>
+		<compiler>
+			<options target="all"/>
+		</compiler>
 	</com.4d>
 </preferences>

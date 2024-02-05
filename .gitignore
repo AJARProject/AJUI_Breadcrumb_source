@@ -7,7 +7,6 @@ Cache.xml
 Conversion*.json
 LogStyleSheet.xsl
 **/DerivedData/**
-!**/DerivedData/*.json
 data.match
 *Components-inactivate/*
 userPreferences.*
@@ -23,6 +22,7 @@ userPreferences.*
 /Settings/*
 /userPreferences*/*
 /Builds/*
+Libraries/*
 
 # Don't need the data file, indexes, symbols, or journal
 *.4DD
@@ -47,3 +47,4 @@ Folder_Reports
 .Trashes
 ehthumbs.db
 Thumbs.db
+
