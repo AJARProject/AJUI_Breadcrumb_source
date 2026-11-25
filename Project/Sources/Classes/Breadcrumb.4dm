@@ -1,32 +1,39 @@
-Class constructor
+// Declared so the 21 R4 compiler knows the properties set on This.
+// https://developer.4d.com/docs/21-R4/Concepts/classes
+property breadCrumb : Object
+property failImport : Boolean
+property templateName : Text
+
+Class constructor($param1 : Object)
+
+	var $template_obj : Object
 	
-	C_OBJECT:C1216($1;$template_obj)
 	
-	If (Count parameters:C259=1)
-		If ($1.templatePath=Null:C1517)
-			$template_obj:=AJUI_BC_templateImport ($1.templateName)
+	If (Count parameters=1)
+		If ($param1.templatePath=Null)
+			$template_obj:=AJUI_BC_templateImport ($param1.templateName)
 		Else 
-			$template_obj:=AJUI_BC_templateImport ($1.templateName;$1.templatePath)
+			$template_obj:=AJUI_BC_templateImport ($param1.templateName;$param1.templatePath)
 		End if 
 		
-		If (This:C1470.failImport)
-			$template_obj:=New object:C1471()
+		If (This.failImport)
+			$template_obj:=New object()
 		Else 
-			This:C1470.breadCrumb:=$template_obj.breadCrumb
+			This.breadCrumb:=$template_obj.breadCrumb
 		End if 
 	End if 
 	
-	AJUI_BC_initProperties (This:C1470)
-	
+	AJUI_BC_initProperties (This)
+
 Function Draw
 	  // ----------------------
 	  // Function
 	  // ----------------------
 	  // This method will handle the state, calculation of the size of each sections, launching the draw and the callback,...
 	
-	AJUI_BC_draw 
-	
-Function Export
+	AJUI_BC_draw
+
+Function Export($param1 : Text; $param2 : Text)
 	  // ----------------------
 	  // Function
 	  // ----------------------
@@ -35,31 +42,30 @@ Function Export
 	  // $1 : (text) AJUI BreadCrumb template name
 	  // $2 : (text) (optional) Path to export
 	
-	C_TEXT:C284($1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_templateExport ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_templateExport ($param1;$param2)
 	Else 
-		AJUI_BC_templateExport ($1)
-	End if 
-	
+		AJUI_BC_templateExport ($param1)
+	End if
+
 Function Hide
 	  // ----------------------
 	  // Function
 	  // ----------------------
 	  //  Wrapper for the object set visible (false)
 	
-	AJUI_BC_hide 
-	
+	AJUI_BC_hide
+
 Function RemoveCurrent
 	  // ----------------------
 	  // Function
 	  // ----------------------
 	  // Remove the current state into a groupedButtons model
 	
-	AJUI_BC_removeCurrent 
-	
-Function RemovePropertyException
+	AJUI_BC_removeCurrent
+
+Function RemovePropertyException($param1 : Text; $param2 : Text)
 	  // ----------------------
 	  // Function
 	  // ----------------------
@@ -68,11 +74,10 @@ Function RemovePropertyException
 	  // $1 : (text) formula name
 	  // $2 : (text) type and state to target
 	
-	C_TEXT:C284($1;$2)
 	
-	AJUI_BC_removePropException ($1;$2)
-	
-Function RemovePropertyExceptions
+	AJUI_BC_removePropException ($param1;$param2)
+
+Function RemovePropertyExceptions($param1 : Text)
 	  // ----------------------
 	  // Function
 	  // ----------------------
@@ -80,11 +85,10 @@ Function RemovePropertyExceptions
 	
 	  // $1 : (text) formula name
 	
-	C_TEXT:C284($1)
 	
-	AJUI_BC_removePropExceptions ($1)
-	
-Function RemovePropertyTypeExceptions
+	AJUI_BC_removePropExceptions ($param1)
+
+Function RemovePropertyTypeExceptions($param1 : Text; $param2 : Text)
 	  // ----------------------
 	  // Function
 	  // ----------------------
@@ -93,19 +97,18 @@ Function RemovePropertyTypeExceptions
 	  // $1 : (text) formula name
 	  // $2 : (text) type name
 	
-	C_TEXT:C284($1;$2)
 	
-	AJUI_BC_removePropTypeException ($1;$2)
-	
+	AJUI_BC_removePropTypeException ($param1;$param2)
+
 Function ResetAllStates
 	  // ----------------------
 	  // Function
 	  // ----------------------
 	  // This method will reset all the states exceptions for each type of an instance
 	
-	AJUI_BC_resetAllStates 
-	
-Function ResetState
+	AJUI_BC_resetAllStates
+
+Function ResetState($param1 : Text)
 	  // ----------------------
 	  // Function
 	  // ----------------------
@@ -113,19 +116,18 @@ Function ResetState
 	
 	  // $1 : (text) constant
 	
-	C_TEXT:C284($1)
 	
-	AJUI_BC_resetState ($1)
-	
+	AJUI_BC_resetState ($param1)
+
 Function Show
 	  // ----------------------
 	  // Function
 	  // ----------------------
 	  // Wrapper for the object set visible (true)
 	
-	AJUI_BC_show 
-	
-Function MaxSectionToDraw
+	AJUI_BC_show
+
+Function MaxSectionToDraw($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Global
 	  // ----------------------
@@ -134,15 +136,14 @@ Function MaxSectionToDraw
 	  // $1 : (longint) (optional) number max of section to draw
 	  // $0 : (longint) (return) current max section
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetMaxSectionToDraw 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetMaxSectionToDraw 
 	Else 
-		AJUI_BC_GetSetMaxSectionToDraw ($1)
-	End if 
-	
-Function Model
+		AJUI_BC_GetSetMaxSectionToDraw ($param1)
+	End if
+
+Function Model($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Global
 	  // ----------------------
@@ -151,15 +152,14 @@ Function Model
 	  // $1 : (text) (optional) model name
 	  // $0 : (text) (return) current model name
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetModel 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetModel 
 	Else 
-		AJUI_BC_GetSetModel ($1)
-	End if 
-	
-Function Name
+		AJUI_BC_GetSetModel ($param1)
+	End if
+
+Function Name($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Global
 	  // ----------------------
@@ -168,15 +168,14 @@ Function Name
 	  // $1 : (text) (optional) form object name
 	  // $0 : (text) (return) current form object name
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetName 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetName 
 	Else 
-		AJUI_BC_GetSetName ($1)
-	End if 
-	
-Function RTL
+		AJUI_BC_GetSetName ($param1)
+	End if
+
+Function RTL($param1 : Boolean) -> $result : Boolean
 	  // ----------------------
 	  // Global
 	  // ----------------------
@@ -185,15 +184,14 @@ Function RTL
 	  // $1 : (boolean) (optional) draw section right to left
 	  // $0 : (boolean) (return) rtl activate/inactivate
 	
-	C_BOOLEAN:C305($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetRTL 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetRTL 
 	Else 
-		AJUI_BC_GetSetRTL ($1)
-	End if 
-	
-Function BgColor
+		AJUI_BC_GetSetRTL ($param1)
+	End if
+
+Function BgColor($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -202,15 +200,14 @@ Function BgColor
 	  // $1 : (text) (optional) background color 
 	  // $0 : (text) (return) current box background color
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBgColor 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBgColor 
 	Else 
-		AJUI_BC_GetSetBgColor ($1)
-	End if 
-	
-Function BorderColor
+		AJUI_BC_GetSetBgColor ($param1)
+	End if
+
+Function BorderColor($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -219,15 +216,14 @@ Function BorderColor
 	  // $1 : (text) (optional) border color 
 	  // $0 : (text) (return) current box border color
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBorderColor 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBorderColor 
 	Else 
-		AJUI_BC_GetSetBorderColor ($1)
-	End if 
-	
-Function BorderSize
+		AJUI_BC_GetSetBorderColor ($param1)
+	End if
+
+Function BorderSize($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -236,15 +232,14 @@ Function BorderSize
 	  // $1 : (longint) (optional) border size 
 	  // $0 : (longint) (return) current box border size
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBorderSize 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBorderSize 
 	Else 
-		AJUI_BC_GetSetBorderSize ($1)
-	End if 
-	
-Function BoxHeight
+		AJUI_BC_GetSetBorderSize ($param1)
+	End if
+
+Function BoxHeight($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -253,15 +248,14 @@ Function BoxHeight
 	  // $1 : (longint) (optional) height 
 	  // $0 : (longint) (return) current box height
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBoxHeight 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBoxHeight 
 	Else 
-		AJUI_BC_GetSetBoxHeight ($1)
-	End if 
-	
-Function BoxWidth
+		AJUI_BC_GetSetBoxHeight ($param1)
+	End if
+
+Function BoxWidth($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -270,15 +264,14 @@ Function BoxWidth
 	  // $1 : (longint) (optional) width 
 	  // $0 : (longint) (return) current box width
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBoxWidth 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBoxWidth 
 	Else 
-		AJUI_BC_GetSetBoxWidth ($1)
-	End if 
-	
-Function CornerRadiusLeft
+		AJUI_BC_GetSetBoxWidth ($param1)
+	End if
+
+Function CornerRadiusLeft($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -287,15 +280,14 @@ Function CornerRadiusLeft
 	  // $1 : (longint) (optional) corner radius 
 	  // $0 : (longint) (return) current radius for the left corners
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetCornerRadiusLeft 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetCornerRadiusLeft 
 	Else 
-		AJUI_BC_GetSetCornerRadiusLeft ($1)
-	End if 
-	
-Function CornerRadiusRight
+		AJUI_BC_GetSetCornerRadiusLeft ($param1)
+	End if
+
+Function CornerRadiusRight($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -304,15 +296,14 @@ Function CornerRadiusRight
 	  // $1 : (longint) (optional) corner radius 
 	  // $0 : (longint) (return) current radius for the right corners
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetCornerRadiusRight 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetCornerRadiusRight 
 	Else 
-		AJUI_BC_GetSetCornerRadiusRight ($1)
-	End if 
-	
-Function IsBoxCentered
+		AJUI_BC_GetSetCornerRadiusRight ($param1)
+	End if
+
+Function IsBoxCentered($param1 : Boolean) -> $result : Boolean
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -321,15 +312,14 @@ Function IsBoxCentered
 	  // $1 : (boolean) (optionnal) activate/inactivate
 	  // $0 : (boolean) (return) current value
 	
-	C_BOOLEAN:C305($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetBoxCentered 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetBoxCentered 
 	Else 
-		AJUI_BC_GetSetBoxCentered ($1)
-	End if 
-	
-Function IsDynamicSize
+		AJUI_BC_GetSetBoxCentered ($param1)
+	End if
+
+Function IsDynamicSize($param1 : Boolean) -> $result : Boolean
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -338,15 +328,14 @@ Function IsDynamicSize
 	  // $1 : (boolean) (optional) activate/inacivate
 	  // $0 : (boolean) (return) dynamic size activated/inactivated
 	
-	C_BOOLEAN:C305($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDynamicSize 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDynamicSize 
 	Else 
-		AJUI_BC_GetSetDynamicSize ($1)
-	End if 
-	
-Function PaddingH
+		AJUI_BC_GetSetDynamicSize ($param1)
+	End if
+
+Function PaddingH($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -355,15 +344,14 @@ Function PaddingH
 	  // $1 : (longint) (optional) padding
 	  // $0 : (longint) (return) current horizontal padding
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetPaddingH 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetPaddingH 
 	Else 
-		AJUI_BC_GetSetPaddingH ($1)
-	End if 
-	
-Function PaddingV
+		AJUI_BC_GetSetPaddingH ($param1)
+	End if
+
+Function PaddingV($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Box
 	  // ----------------------
@@ -372,15 +360,14 @@ Function PaddingV
 	  // $1 : (longint) (optional) padding
 	  // $0 : (longint) (return) current vertical padding
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetPaddingV 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetPaddingV 
 	Else 
-		AJUI_BC_GetSetPaddingV ($1)
-	End if 
-	
-Function ArrowBorderSize
+		AJUI_BC_GetSetPaddingV ($param1)
+	End if
+
+Function ArrowBorderSize($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -389,15 +376,14 @@ Function ArrowBorderSize
 	  // $1 : (longint) (optional) size
 	  // $0 : (longint) (return) current arrow border size
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetArrowBorderSize 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetArrowBorderSize 
 	Else 
-		AJUI_BC_GetSetArrowBorderSize ($1)
-	End if 
-	
-Function ArrowColor
+		AJUI_BC_GetSetArrowBorderSize ($param1)
+	End if
+
+Function ArrowColor($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -406,15 +392,14 @@ Function ArrowColor
 	  // $1 : (text) (optional) color
 	  // $0 : (text) (return) current arrow color
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetArrowColor 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetArrowColor 
 	Else 
-		AJUI_BC_GetSetArrowColor ($1)
-	End if 
-	
-Function ArrowPaddingH
+		AJUI_BC_GetSetArrowColor ($param1)
+	End if
+
+Function ArrowPaddingH($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -423,15 +408,14 @@ Function ArrowPaddingH
 	  // $1 : (longint) (optional) padding
 	  // $0 : (longint) (return) current divider padding horizontal
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDividerPaddingH 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDividerPaddingH 
 	Else 
-		AJUI_BC_GetSetDividerPaddingH ($1)
-	End if 
-	
-Function ArrowWidth
+		AJUI_BC_GetSetDividerPaddingH ($param1)
+	End if
+
+Function ArrowWidth($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -441,15 +425,14 @@ Function ArrowWidth
 	  // $1 : (text) (optional) width with px or %
 	  // $0 : (text) (return) current arrow width
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetArrowWidth 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetArrowWidth 
 	Else 
-		AJUI_BC_GetSetArrowWidth ($1)
-	End if 
-	
-Function Divider
+		AJUI_BC_GetSetArrowWidth ($param1)
+	End if
+
+Function Divider($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -458,15 +441,14 @@ Function Divider
 	  // $1 : (text) (optional) divider
 	  // $0 : (text) (return) current divider
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivString 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivString 
 	Else 
-		AJUI_BC_GetSetDivString ($1)
-	End if 
-	
-Function DividerFontColor
+		AJUI_BC_GetSetDivString ($param1)
+	End if
+
+Function DividerFontColor($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -475,15 +457,14 @@ Function DividerFontColor
 	  // $1 : (text) (optional) color
 	  // $0 : (text) (return) current font color
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivFontColor 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivFontColor 
 	Else 
-		AJUI_BC_GetSetDivFontColor ($1)
-	End if 
-	
-Function DividerFontName
+		AJUI_BC_GetSetDivFontColor ($param1)
+	End if
+
+Function DividerFontName($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -492,15 +473,14 @@ Function DividerFontName
 	  // $1 : (text) (optional) color
 	  // $0 : (text) (return) current font name
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivFontName 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivFontName 
 	Else 
-		AJUI_BC_GetSetDivFontName ($1)
-	End if 
-	
-Function DividerFontSize
+		AJUI_BC_GetSetDivFontName ($param1)
+	End if
+
+Function DividerFontSize($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -509,15 +489,14 @@ Function DividerFontSize
 	  // $1 : (longint) (optional) size
 	  // $0 : (longint) (return) current font size
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivFontSize 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivFontSize 
 	Else 
-		AJUI_BC_GetSetDivFontSize ($1)
-	End if 
-	
-Function DividerFontStyle
+		AJUI_BC_GetSetDivFontSize ($param1)
+	End if
+
+Function DividerFontStyle($param1 : Text) -> $result : Text
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -526,15 +505,14 @@ Function DividerFontStyle
 	  // $1 : (text) (optional) style
 	  // $0 : (text) (return) current font style
 	
-	C_TEXT:C284($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivFontStyle 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivFontStyle 
 	Else 
-		AJUI_BC_GetSetDivFontStyle ($1)
-	End if 
-	
-Function DividerMargin
+		AJUI_BC_GetSetDivFontStyle ($param1)
+	End if
+
+Function DividerMargin($param1 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -543,15 +521,14 @@ Function DividerMargin
 	  // $1 : (longint) (optional) margin
 	  // $0 : (longint) (return) current divider margin
 	
-	C_LONGINT:C283($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetDivMargin 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetDivMargin 
 	Else 
-		AJUI_BC_GetSetDivMargin ($1)
-	End if 
-	
-Function IsFirstSectionWithArrow
+		AJUI_BC_GetSetDivMargin ($param1)
+	End if
+
+Function IsFirstSectionWithArrow($param1 : Boolean) -> $result : Boolean
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -560,15 +537,14 @@ Function IsFirstSectionWithArrow
 	  // $1 : (boolean) (optional) true/false
 	  // $0 : (boolean) (return) firstSectionWithArrow activate/inactivate
 	
-	C_BOOLEAN:C305($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetFirstSectWithArro 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetFirstSectWithArro 
 	Else 
-		AJUI_BC_GetSetFirstSectWithArro ($1)
-	End if 
-	
-Function IsLastSectionWithArrow
+		AJUI_BC_GetSetFirstSectWithArro ($param1)
+	End if
+
+Function IsLastSectionWithArrow($param1 : Boolean) -> $result : Boolean
 	  // ----------------------
 	  // Divider
 	  // ----------------------
@@ -577,15 +553,14 @@ Function IsLastSectionWithArrow
 	  // $1 : (boolean) (optional) true/false
 	  // $0 : (boolean) (return) lastSectionWithArrow activate/inactivate
 	
-	C_BOOLEAN:C305($0;$1)
 	
-	If (Count parameters:C259=0)
-		$0:=AJUI_BC_GetSetLastSectWithArrow 
+	If (Count parameters=0)
+		$result:=AJUI_BC_GetSetLastSectWithArrow 
 	Else 
-		AJUI_BC_GetSetLastSectWithArrow ($1)
-	End if 
-	
-Function AddSection
+		AJUI_BC_GetSetLastSectWithArrow ($param1)
+	End if
+
+Function AddSection($param1 : Text; $param2 : Object)
 	  // ----------------------
 	  // Section List
 	  // ----------------------
@@ -595,16 +570,14 @@ Function AddSection
 	  // $1 : (text) section id
 	  // $2 : (object) (optional) section prebuilded
 	
-	C_TEXT:C284($1)
-	C_OBJECT:C1216($2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_addSection ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_addSection ($param1;$param2)
 	Else 
-		AJUI_BC_addSection ($1)
-	End if 
-	
-Function GetNextPosition
+		AJUI_BC_addSection ($param1)
+	End if
+
+Function GetNextPosition -> $result : Integer
 	  // ----------------------
 	  // Section List
 	  // ----------------------
@@ -612,19 +585,18 @@ Function GetNextPosition
 	
 	  // $0 : (longint) (return) next position
 	
-	C_LONGINT:C283($0)
 	
-	$0:=AJUI_BC_checkNextPosition 
-	
+	$result:=AJUI_BC_checkNextPosition
+
 Function RemoveAllSections
 	  // ----------------------
 	  // Section List
 	  // ----------------------
 	  // This method removes all the sections
 	
-	AJUI_BC_removeAllSections 
-	
-Function RemoveSection
+	AJUI_BC_removeAllSections
+
+Function RemoveSection($param1 : Text)
 	  // ----------------------
 	  // Section List
 	  // ----------------------
@@ -632,11 +604,10 @@ Function RemoveSection
 	
 	  // $1 : (text) id
 	
-	C_TEXT:C284($1)
 	
-	AJUI_BC_removeSection ($1)
-	
-Function SetCurrentSection
+	AJUI_BC_removeSection ($param1)
+
+Function SetCurrentSection($param1 : Text)
 	  // ----------------------
 	  // Section List
 	  // ----------------------
@@ -644,11 +615,10 @@ Function SetCurrentSection
 	
 	  // $1 : (text) id
 	
-	C_TEXT:C284($1)
 	
-	AJUI_BC_setCurrentSection ($1)
-	
-Function UpdateSection
+	AJUI_BC_setCurrentSection ($param1)
+
+Function UpdateSection($param1 : Text; $param2 : Object) -> $result : Object
 	  // ----------------------
 	  // Section List
 	  // ----------------------
@@ -658,16 +628,14 @@ Function UpdateSection
 	  // $2 : (object) (optional) object with properties to update
 	  // $0 : (object) (return) section object with current value
 	
-	C_TEXT:C284($1)
-	C_OBJECT:C1216($0;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_updateSection ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_updateSection ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_updateSection ($1)
-	End if 
-	
-Function PictureOpacity
+		$result:=AJUI_BC_updateSection ($param1)
+	End if
+
+Function PictureOpacity($param1 : Text; $param2 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -677,16 +645,14 @@ Function PictureOpacity
 	  // $2 : (longint) (optional) opacity
 	  // $0 : (longint) (return) current picture opacity
 	
-	C_TEXT:C284($1)
-	C_LONGINT:C283($0;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetPictureOpacity ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetPictureOpacity ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetPictureOpacity ($1)
-	End if 
-	
-Function ReplacingColor
+		$result:=AJUI_BC_GetSetPictureOpacity ($param1)
+	End if
+
+Function ReplacingColor($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -696,15 +662,14 @@ Function ReplacingColor
 	  // $2 : (text) (optional) color
 	  // $0 : (text) (return) current replacing color
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetReplacingColor ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetReplacingColor ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetReplacingColor ($1)
-	End if 
-	
-Function SectionBgColor
+		$result:=AJUI_BC_GetSetReplacingColor ($param1)
+	End if
+
+Function SectionBgColor($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -714,15 +679,14 @@ Function SectionBgColor
 	  // $2 : (text) (optional) color
 	  // $0 : (text) (return) current section bg color
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionBgColor ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionBgColor ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionBgColor ($1)
-	End if 
-	
-Function SectionBorderColor
+		$result:=AJUI_BC_GetSetSectionBgColor ($param1)
+	End if
+
+Function SectionBorderColor($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -732,15 +696,14 @@ Function SectionBorderColor
 	  // $2 : (text) (optional) color
 	  // $0 : (text) (return) current section border color
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectBorderColor ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectBorderColor ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectBorderColor ($1)
-	End if 
-	
-Function SectionBorderSize
+		$result:=AJUI_BC_GetSetSectBorderColor ($param1)
+	End if
+
+Function SectionBorderSize($param1 : Text; $param2 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -750,16 +713,14 @@ Function SectionBorderSize
 	  // $2 : (longint) (optional) size
 	  // $0 : (longint) (return) current section border size
 	
-	C_TEXT:C284($1)
-	C_LONGINT:C283($0;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionBorderSize ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionBorderSize ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionBorderSize ($1)
-	End if 
-	
-Function SectionFontColor
+		$result:=AJUI_BC_GetSetSectionBorderSize ($param1)
+	End if
+
+Function SectionFontColor($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -769,15 +730,14 @@ Function SectionFontColor
 	  // $2 : (text) (optional) color
 	  // $0 : (text) (return) current section font color
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionFontColor ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionFontColor ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionFontColor ($1)
-	End if 
-	
-Function SectionFontName
+		$result:=AJUI_BC_GetSetSectionFontColor ($param1)
+	End if
+
+Function SectionFontName($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -787,15 +747,14 @@ Function SectionFontName
 	  // $2 : (text) (optional) font name
 	  // $0 : (text) (return) current section font name
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionFontName ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionFontName ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionFontName ($1)
-	End if 
-	
-Function SectionFontSize
+		$result:=AJUI_BC_GetSetSectionFontName ($param1)
+	End if
+
+Function SectionFontSize($param1 : Text; $param2 : Integer) -> $result : Integer
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -805,16 +764,14 @@ Function SectionFontSize
 	  // $2 : (text) (optional) size
 	  // $0 : (text) (return) current section font size
 	
-	C_TEXT:C284($1)
-	C_LONGINT:C283($0;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionFontSize ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionFontSize ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionFontSize ($1)
-	End if 
-	
-Function SectionFontStyle
+		$result:=AJUI_BC_GetSetSectionFontSize ($param1)
+	End if
+
+Function SectionFontStyle($param1 : Text; $param2 : Text) -> $result : Text
 	  // ----------------------
 	  // Section Types
 	  // ----------------------
@@ -824,10 +781,9 @@ Function SectionFontStyle
 	  // $2 : (text) (optional) style
 	  // $0 : (text) (return) current section font style
 	
-	C_TEXT:C284($0;$1;$2)
 	
-	If (Count parameters:C259=2)
-		AJUI_BC_GetSetSectionFontStyle ($1;$2)
+	If (Count parameters=2)
+		AJUI_BC_GetSetSectionFontStyle ($param1;$param2)
 	Else 
-		$0:=AJUI_BC_GetSetSectionFontStyle ($1)
-	End if 
+		$result:=AJUI_BC_GetSetSectionFontStyle ($param1)
+	End if
