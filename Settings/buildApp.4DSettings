@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  4D 21 R4 component build settings.
+  Location: Settings/buildApp.4DSettings (next to the Project folder).
+  AJUI_BuildComponent passes this path to BUILD APPLICATION.
+  https://developer.4d.com/docs/21-R4/Desktop/building
+  https://developer.4d.com/docs/21-R4/commands/build-application
+  Keys /Preferences4D/BuildApp/BuildComponent and BuildApplicationName.
+  No licence path.
+-->
+<Preferences4D>
+	<BuildApp>
+		<BuildCompiled>False</BuildCompiled>
+		<IncludeAssociatedFolders>True</IncludeAssociatedFolders>
+		<BuildComponent>True</BuildComponent>
+		<BuildApplicationName>AJUI_BreadCrumb</BuildApplicationName>
+	</BuildApp>
+</Preferences4D>

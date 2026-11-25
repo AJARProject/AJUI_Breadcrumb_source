@@ -4,7 +4,9 @@
   //
   // Return the Breadcrumb class
 
-If (False:C215)
+#DECLARE() -> $result : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.06.20, 16:13:12
@@ -16,5 +18,4 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0)
-$0:=cs:C1710.Breadcrumb
+$result:=cs.Breadcrumb

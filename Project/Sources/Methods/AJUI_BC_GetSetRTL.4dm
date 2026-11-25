@@ -6,7 +6,9 @@
   //
   // Getter and setter to draw the section from the right to the left
 
-If (False:C215)
+#DECLARE($param1 : Boolean) -> $result : Boolean
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 09:20:20
@@ -18,11 +20,10 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_BOOLEAN:C305($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.global.rtl
+If (Count parameters=0)
+	$result:=This.breadCrumb.global.rtl
 Else 
-	This:C1470.breadCrumb.global.rtl:=$1
+	This.breadCrumb.global.rtl:=$param1
 End if 
 

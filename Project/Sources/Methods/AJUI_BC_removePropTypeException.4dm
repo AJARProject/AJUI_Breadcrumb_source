@@ -6,7 +6,13 @@
   //
   // This method remove each exception for a property but only for a specific type
 
-If (False:C215)
+#DECLARE($param1 : Text; $param2 : Text)
+
+var $formula; $property; $type : Text
+var $pos : Integer
+var $properties_col : Collection
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 23.10.19, 09:26:33
@@ -18,12 +24,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$formula;$property)
-C_TEXT:C284($2;$type)
-C_LONGINT:C283($pos)
 
-$formula:=$1
-$type:=$2
+$formula:=$param1
+$type:=$param2
 
 $properties_col:=AJUI_BC_PropertyCol 
 
@@ -31,14 +34,14 @@ $pos:=$properties_col.extract("formula").indexOf($formula)
 $property:=$properties_col[$pos].property
 
 If ($type="first") | ($type="current") | ($type="previous") | ($type="next")
-	OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].default;$property)
-	OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].hover;$property)
-	OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].active;$property)
-	OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].disable;$property)
+	OB REMOVE(This.breadCrumb.sectionTypes[$type].default;$property)
+	OB REMOVE(This.breadCrumb.sectionTypes[$type].hover;$property)
+	OB REMOVE(This.breadCrumb.sectionTypes[$type].active;$property)
+	OB REMOVE(This.breadCrumb.sectionTypes[$type].disable;$property)
 Else 
 	If ($type="standard")
-		OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].hover;$property)
-		OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].active;$property)
-		OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes[$type].disable;$property)
+		OB REMOVE(This.breadCrumb.sectionTypes[$type].hover;$property)
+		OB REMOVE(This.breadCrumb.sectionTypes[$type].active;$property)
+		OB REMOVE(This.breadCrumb.sectionTypes[$type].disable;$property)
 	End if 
 End if 

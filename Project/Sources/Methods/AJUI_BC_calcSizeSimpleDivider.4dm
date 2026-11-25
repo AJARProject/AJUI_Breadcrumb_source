@@ -6,7 +6,25 @@
   //
   // This method will caculate the size used by a divider for the model simple
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $result : Object
+
+var $divider : Object
+var $fontSize; $margin : Integer
+var $string : Text
+var $fontName : Text
+var $fontColor : Text
+var $fontStyle : Text
+var $posOpacity : Integer
+var $fontOpacity : Text
+var $fontOpacityNum : Real
+var $svgDividerRef : Text
+var $style_definition : Text
+var $tdivCalcID : Text
+var $pict : Picture
+var $width : Integer
+var $height : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 17.09.19, 10:31:22
@@ -18,10 +36,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$divider)
-C_LONGINT:C283($fontSize;$margin)
 
-$divider:=$1
+$divider:=$param1
 
   //divider
 $string:=$divider.string
@@ -32,30 +48,30 @@ $fontStyle:=$divider.font.style
 $margin:=$divider.margin
 
 
-$posOpacity:=Position:C15(":";$fontColor)
+$posOpacity:=Position(":";$fontColor)
 If ($posOpacity>0)
-	$fontOpacity:=Delete string:C232($fontColor;0;$posOpacity)
-	$fontColor:=Delete string:C232($fontColor;$posOpacity;Length:C16($fontColor))
-	$fontOpacityNum:=Num:C11($fontOpacity)/100
-	$fontOpacity:=String:C10($fontOpacityNum)
+	$fontOpacity:=Delete string($fontColor;0;$posOpacity)
+	$fontColor:=Delete string($fontColor;$posOpacity;Length($fontColor))
+	$fontOpacityNum:=Num($fontOpacity)/100
+	$fontOpacity:=String($fontOpacityNum)
 Else 
 	$fontOpacity:="1"
 End if 
 
   //text size calculation
 $svgDividerRef:=SVG_New 
-$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 $tdivCalcID:=SVG_New_textArea ($svgDividerRef;$string;0;0;0;0;$style_definition)
 SVG_SET_FONT_STYLE ($svgDividerRef;Utl_fontStyle2Constant ($fontStyle))
 
-If (False:C215)
+If (False)
 	SVGTool_SHOW_IN_VIEWER ($svgDividerRef)
 End if 
 
 $pict:=SVG_Export_to_picture ($svgDividerRef)
-PICTURE PROPERTIES:C457($pict;$width;$height)
+PICTURE PROPERTIES($pict;$width;$height)
 
 SVG_CLEAR ($svgDividerRef)
 
-$0:=New object:C1471("width";$width+($margin*2);"height";$height)
+$result:=New object("width";$width+($margin*2);"height";$height)
 

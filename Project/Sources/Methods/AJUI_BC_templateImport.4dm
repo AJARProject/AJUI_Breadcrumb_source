@@ -7,7 +7,14 @@
   //
   // Method to import an AJUI BreadCrumb instace from a template file (json file)
 
-If (False:C215)
+#DECLARE($param1 : Text; $param2 : Text) -> $result : Object
+
+var $instance_obj : Object
+var $fileName; $templateName; $pathName; $json : Text
+var $folder : 4D.Folder
+var $testPathName : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 09.10.19, 09:40:50
@@ -19,39 +26,35 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$instance_obj)
-C_TEXT:C284($1;$fileName;$templateName)
-C_TEXT:C284($2;$pathName)
-C_TEXT:C284($json)
 
-$instance_obj:=New object:C1471
+$instance_obj:=New object
 $json:=""
-$templateName:=$1
+$templateName:=$param1
 
 If ($templateName="@.json")
 	$fileName:=$templateName
-	$templateName:=Replace string:C233($templateName;".json";"")
+	$templateName:=Replace string($templateName;".json";"")
 Else 
 	$fileName:=$templateName+".json"
 End if 
 
 
-If (Count parameters:C259=2)
-	If ($2="")
-		$folder:=Folder:C1567(Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$templateName+Folder separator:K24:12;fk platform path:K87:2)
+If (Count parameters=2)
+	If ($param2="")
+		$folder:=Folder(Get 4D folder(Current resources folder;*)+"AJUI_BreadCrumb_Templates"+Folder separator+$templateName+Folder separator;fk platform path)
 		If ($folder.exists)
 			$pathName:=$folder.platformPath+$fileName
 		Else 
-			$pathName:=Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$fileName
+			$pathName:=Get 4D folder(Current resources folder;*)+"AJUI_BreadCrumb_Templates"+Folder separator+$fileName
 		End if 
 	Else 
-		If ($2="#@")
-			$pathName:=Replace string:C233($2;"#";Get 4D folder:C485(Current resources folder:K5:16;*))
+		If ($param2="#@")
+			$pathName:=Replace string($param2;"#";Get 4D folder(Current resources folder;*))
 		Else 
-			$pathName:=$2
+			$pathName:=$param2
 		End if 
 		
-		$folder:=Folder:C1567($pathName+$templateName+Folder separator:K24:12;fk platform path:K87:2)
+		$folder:=Folder($pathName+$templateName+Folder separator;fk platform path)
 		If ($folder.exists)
 			$pathName:=$folder.platformPath+$fileName
 		Else 
@@ -59,30 +62,30 @@ If (Count parameters:C259=2)
 		End if 
 	End if 
 Else 
-	$folder:=Folder:C1567(Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$templateName+Folder separator:K24:12;fk platform path:K87:2)
+	$folder:=Folder(Get 4D folder(Current resources folder;*)+"AJUI_BreadCrumb_Templates"+Folder separator+$templateName+Folder separator;fk platform path)
 	If ($folder.exists)
 		$pathName:=$folder.platformPath+$fileName
 	Else 
-		$pathName:=Get 4D folder:C485(Current resources folder:K5:16;*)+"AJUI_BreadCrumb_Templates"+Folder separator:K24:12+$fileName
+		$pathName:=Get 4D folder(Current resources folder;*)+"AJUI_BreadCrumb_Templates"+Folder separator+$fileName
 	End if 
 End if 
 
-$testPathName:=Test path name:C476($pathName)
+$testPathName:=Test path name($pathName)
 
 If ($testPathName=1)  //check file
-	$json:=Document to text:C1236($pathName)
+	$json:=Document to text($pathName)
 Else 
-	ALERT:C41("File not found"+"\r\r"+$pathName)
+	ALERT("File not found"+"\r\r"+$pathName)
 End if 
 
 
 If ($json="")
-	$instance_obj.failImport:=True:C214
+	$instance_obj.failImport:=True
 Else 
-	$instance_obj:=JSON Parse:C1218($json)
-	$instance_obj.breadCrumb.global.importPath:=Replace string:C233($pathName;$templateName+".json";"")
-	$instance_obj.failImport:=False:C215
+	$instance_obj:=JSON Parse($json)
+	$instance_obj.breadCrumb.global.importPath:=Replace string($pathName;$templateName+".json";"")
+	$instance_obj.failImport:=False
 	
 End if 
 
-$0:=$instance_obj
+$result:=$instance_obj

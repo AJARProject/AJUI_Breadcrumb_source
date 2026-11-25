@@ -4,7 +4,7 @@
   //
   // Remove the current state into a groupedButtons model
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 09.01.20, 09:04:32
@@ -16,4 +16,4 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-This:C1470.breadCrumb.internalUse.selectedBtnID:=""
+This.breadCrumb.internalUse.selectedBtnID:=""

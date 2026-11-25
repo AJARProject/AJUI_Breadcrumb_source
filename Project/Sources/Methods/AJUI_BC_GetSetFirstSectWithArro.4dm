@@ -6,7 +6,9 @@
   //
   // Getter and setter to draw/remove the first section arrow (model: arrow)
 
-If (False:C215)
+#DECLARE($param1 : Boolean) -> $result : Boolean
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 16.10.19, 11:29:15
@@ -19,11 +21,10 @@ If (False:C215)
 End if 
 
 
-C_BOOLEAN:C305($1;$0;$arrow)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.arrow.firstSectionWithArrow
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.arrow.firstSectionWithArrow
 Else 
-	This:C1470.breadCrumb.divider.arrow.firstSectionWithArrow:=$1
+	This.breadCrumb.divider.arrow.firstSectionWithArrow:=$param1
 End if 
 

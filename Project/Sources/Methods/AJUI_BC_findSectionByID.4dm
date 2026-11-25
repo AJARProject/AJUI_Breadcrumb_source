@@ -6,7 +6,12 @@
   //
   // Callback to find an section by ID into a collection
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Text)
+
+var $section : Object
+var $id : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 16.09.19, 16:11:35
@@ -18,10 +23,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$section)
-C_TEXT:C284($2;$id)
 
-$section:=$1.value
-$id:=$2
+$section:=$param1.value
+$id:=$param2
 
-$1.result:=($section.id=$id)
+$param1.result:=($section.id=$id)

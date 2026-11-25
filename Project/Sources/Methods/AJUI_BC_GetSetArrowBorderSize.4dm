@@ -6,7 +6,9 @@
   //
   // Getter and setter for the border size of the arrow used as a divider. (model : arrow)
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 15:18:07
@@ -18,12 +20,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.arrow.borderSize
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.arrow.borderSize
 Else 
-	If ($1>=0)
-		This:C1470.breadCrumb.divider.arrow.borderSize:=$1
+	If ($param1>=0)
+		This.breadCrumb.divider.arrow.borderSize:=$param1
 	End if 
 End if 

@@ -4,7 +4,7 @@
   //
   // This method will handle the state, calculation of the size of each sections, launching the draw and the callback,...
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 12.09.19, 10:14:44
@@ -16,31 +16,45 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($instance_obj;$toDraw_obj;$section)
-C_TEXT:C284($name;$sectionID;$sectionType;$model)
-C_VARIANT:C1683($callback)
-C_BOOLEAN:C305($skip;$firstSectionWithArrow)
-C_PICTURE:C286($pict)
-C_LONGINT:C283($cRadiusLeft;$cRadiusRight;$borderSize;$position;$maxHeight)
+var $instance_obj; $toDraw_obj; $section : Object
+var $name; $sectionID; $sectionType; $model : Text
+var $callback : Variant
+var $skip; $firstSectionWithArrow : Boolean
+var $pict : Picture
+var $borderSize; $position; $maxHeight : Integer
+var $params : Object
+var $currentFormObj : Text
+var $left : Integer
+var $top : Integer
+var $right : Integer
+var $bottom : Integer
+var $mouseX : Integer
+var $mouseY : Integer
+var $state : Integer
+var $id : Text
+var $pictWidth : Integer
+var $pictHeight : Integer
+var $offset_center : Real
 
-$instance_obj:=This:C1470
+
+$instance_obj:=This
 $name:=$instance_obj.breadCrumb.global.name
 
-$currentFormObj:=OBJECT Get name:C1087(Object current:K67:2)
-$skip:=False:C215
+$currentFormObj:=OBJECT Get name(Object current)
+$skip:=False
 
-OBJECT GET COORDINATES:C663(*;$name;$left;$top;$right;$bottom)
+OBJECT GET COORDINATES(*;$name;$left;$top;$right;$bottom)
 
   //check if the current object and the name is the same
 If ($currentFormObj=$name)
 	
-	GET MOUSE:C468($mouseX;$mouseY;$state)
-	CONVERT COORDINATES:C1365($mouseX;$mouseY;XY Current window:K27:6;XY Current form:K27:5)
+	MOUSE POSITION($mouseX;$mouseY;$state)
+	CONVERT COORDINATES($mouseX;$mouseY;XY Current window;XY Current form)
 	$mouseX:=$mouseX-$left
 	$mouseY:=$mouseY-$top
 	
-	$id:=SVG Find element ID by coordinates:C1054(*;$currentFormObj;$mouseX;$mouseY)
-	$sectionID:=Substring:C12($id;1;Length:C16($id))
+	$id:=SVG Find element ID by coordinates(*;$currentFormObj;$mouseX;$mouseY)
+	$sectionID:=Substring($id;1;Length($id))
 	
 	
 	
@@ -48,11 +62,11 @@ If ($currentFormObj=$name)
 	
 	
 	If ($sectionID="@_AJUI_BC_bindedPicture")
-		$sectionID:=Replace string:C233($sectionID;"_AJUI_BC_bindedPicture";"")
+		$sectionID:=Replace string($sectionID;"_AJUI_BC_bindedPicture";"")
 	End if 
 	
-	If ($instance_obj.breadCrumb.internalUse.lastID=$sectionID) & ($instance_obj.breadCrumb.internalUse.lastEvent=On Mouse Move:K2:35) & (Form event code:C388=On Mouse Move:K2:35)
-		$skip:=True:C214
+	If ($instance_obj.breadCrumb.internalUse.lastID=$sectionID) & ($instance_obj.breadCrumb.internalUse.lastEvent=On Mouse Move) & (Form event code=On Mouse Move)
+		$skip:=True
 	End if 
 	
 	$instance_obj.breadCrumb.internalUse.lastID:=$sectionID  //refresh last id
@@ -60,19 +74,19 @@ Else
 	$instance_obj.breadCrumb.internalUse.lastID:=$sectionID  //refresh last id
 End if 
 
-$instance_obj.breadCrumb.internalUse.lastEvent:=Form event code:C388  //refresh last event
+$instance_obj.breadCrumb.internalUse.lastEvent:=Form event code  //refresh last event
 
   //avoids the mouse move between on clicked and mouse up event
-If (Is waiting mouse up:C1422)
-	If (Not:C34($instance_obj.breadCrumb.internalUse.lastEvent=On Clicked:K2:4))
-		$skip:=True:C214
+If (Is waiting mouse up)
+	If (Not($instance_obj.breadCrumb.internalUse.lastEvent=On Clicked))
+		$skip:=True
 	End if 
 End if 
 
-If (Not:C34($skip))  //dont redraw if skip
+If (Not($skip))  //dont redraw if skip
 	
 	
-	$toDraw_obj:=OB Copy:C1225($instance_obj)
+	$toDraw_obj:=OB Copy($instance_obj)
 	$model:=$toDraw_obj.breadCrumb.global.model
 	
 	  //check grouped buttons model
@@ -80,7 +94,7 @@ If (Not:C34($skip))  //dont redraw if skip
 		AJUI_BC_grpBtnAutoValues ($toDraw_obj)
 		
 		If ($currentFormObj=$name) & ($sectionID#"")
-			If (Form event code:C388=On Mouse Up:K2:58) | (Form event code:C388=On Double Clicked:K2:5)
+			If (Form event code=On Mouse Up) | (Form event code=On Double Clicked)
 				  //set the new current section
 				$toDraw_obj.SetCurrentSection($sectionID)
 				$instance_obj.breadCrumb.internalUse.selectedBtnID:=$sectionID  //refresh
@@ -91,7 +105,7 @@ If (Not:C34($skip))  //dont redraw if skip
 	$borderSize:=$toDraw_obj.breadCrumb.box.border.size
 	
 	  //check dynamicSize
-	If (Not:C34($toDraw_obj.breadCrumb.box.dynamicSize))
+	If (Not($toDraw_obj.breadCrumb.box.dynamicSize))
 		If ($toDraw_obj.breadCrumb.box.width<0)
 			$toDraw_obj.breadCrumb.box.width:=$right-$left-$borderSize
 		End if 
@@ -109,7 +123,7 @@ If (Not:C34($skip))  //dont redraw if skip
 		$sectionType:=$section.type
 		
 		If ($section.disable)
-			If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].disable)))
+			If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].disable)))
 				$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"disable";$sectionType)
 			Else 
 				$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
@@ -119,24 +133,24 @@ If (Not:C34($skip))  //dont redraw if skip
 			
 			  //HANDLE STATES
 			Case of 
-				: (Form event code:C388=On Mouse Enter:K2:33)  //state hover
-					If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
+				: (Form event code=On Mouse Enter)  //state hover
+					If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"hover";$sectionType)
 					Else 
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					End if 
 					
-				: (Form event code:C388=On Mouse Move:K2:35)  //state hover
+				: (Form event code=On Mouse Move)  //state hover
 					
-					If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
+					If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"hover";$sectionType)
 					Else 
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					End if 
 					
-				: (Form event code:C388=On Clicked:K2:4)  //state active
+				: (Form event code=On Clicked)  //state active
 					
-					If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].active))) & ($sectionID=$section.id)
+					If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].active))) & ($sectionID=$section.id)
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"active";$sectionType)
 					Else 
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
@@ -144,28 +158,28 @@ If (Not:C34($skip))  //dont redraw if skip
 					
 					
 					
-				: (Form event code:C388=On Double Clicked:K2:5)  //state active
+				: (Form event code=On Double Clicked)  //state active
 					
-					If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].active))) & ($sectionID=$section.id)
+					If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].active))) & ($sectionID=$section.id)
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"active";$sectionType)
 					Else 
 						$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					End if 
 					
 					
-				: (Form event code:C388=On Mouse Leave:K2:34)  //state default
+				: (Form event code=On Mouse Leave)  //state default
 					$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					
-				: (Form event code:C388=On Mouse Up:K2:58)  //state default
-					GET MOUSE:C468($mouseX;$mouseY;$state)
-					CONVERT COORDINATES:C1365($mouseX;$mouseY;XY Current window:K27:6;XY Current form:K27:5)
+				: (Form event code=On Mouse Up)  //state default
+					MOUSE POSITION($mouseX;$mouseY;$state)
+					CONVERT COORDINATES($mouseX;$mouseY;XY Current window;XY Current form)
 					
-					OBJECT GET COORDINATES:C663(*;$name;$left;$top;$right;$bottom)
+					OBJECT GET COORDINATES(*;$name;$left;$top;$right;$bottom)
 					
 					  //check case to apply after a mouse up 
 					If ($mouseX>=$left) & ($mouseX<=$right) & ($mouseY>=$top) & ($mouseY<=$bottom)
 						
-						If (Not:C34(OB Is empty:C1297($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
+						If (Not(OB Is empty($toDraw_obj.breadCrumb.sectionTypes[$sectionType].hover))) & ($sectionID=$section.id)
 							$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"hover";$sectionType)
 						Else 
 							$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
@@ -177,7 +191,7 @@ If (Not:C34($skip))  //dont redraw if skip
 					
 					
 					
-				: (Form event code:C388=On Load:K2:1)  //state default
+				: (Form event code=On Load)  //state default
 					$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					
 					
@@ -201,10 +215,10 @@ If (Not:C34($skip))  //dont redraw if skip
 			AJUI_BC_loadPicture ($section;$toDraw_obj.breadCrumb.global.importPath)
 			AJUI_BC_resizePicture ($section;$maxHeight-4)
 		Else 
-			$section.drawPicture:=False:C215
+			$section.drawPicture:=False
 		End if 
 		
-		$firstSectionWithArrow:=True:C214  //can't be false after the first section
+		$firstSectionWithArrow:=True  //can't be false after the first section
 		
 	End for each 
 	
@@ -213,91 +227,89 @@ If (Not:C34($skip))  //dont redraw if skip
 	$pict:=AJUI_BC_drawSVG ($toDraw_obj)
 	
 	  //set picture and resize
-	OBJECT SET BORDER STYLE:C1262(*;$name;Border None:K42:27)
-	PICTURE PROPERTIES:C457($pict;$pictWidth;$pictHeight)
+	OBJECT SET BORDER STYLE(*;$name;Border None)
+	PICTURE PROPERTIES($pict;$pictWidth;$pictHeight)
 	If ($toDraw_obj.breadCrumb.box.dynamicSize) & ($toDraw_obj.breadCrumb.box.centered)
 		$offset_center:=(($right-$left)/2)-($pictWidth/2)
-		OBJECT SET COORDINATES:C1248(*;$name;$left+$offset_center;$top;$left+$offset_center+$pictWidth;$top+$pictHeight)
+		OBJECT SET COORDINATES(*;$name;$left+$offset_center;$top;$left+$offset_center+$pictWidth;$top+$pictHeight)
 	Else 
 		If ($toDraw_obj.breadCrumb.global.rtl)  //resize from the right if rtl
-			OBJECT SET COORDINATES:C1248(*;$name;$right-$pictWidth;$top;$right;$top+$pictHeight)
+			OBJECT SET COORDINATES(*;$name;$right-$pictWidth;$top;$right;$top+$pictHeight)
 		Else 
-			OBJECT SET COORDINATES:C1248(*;$name;$left;$top;$left+$pictWidth;$top+$pictHeight)
+			OBJECT SET COORDINATES(*;$name;$left;$top;$left+$pictWidth;$top+$pictHeight)
 		End if 
 	End if 
-	OBJECT Get pointer:C1124(Object named:K67:5;$name)->:=$pict
+	OBJECT Get pointer(Object named;$name)->:=$pict
 	
 	  //callback
 	If ($currentFormObj=$name) & ($sectionID#"")
-		$position:=This:C1470.breadCrumb.sectionList.findIndex("AJUI_BC_findSectionByID";$sectionID)
+		$position:=This.breadCrumb.sectionList.findIndex("AJUI_BC_findSectionByID";$sectionID)
 		
 		Case of 
-			: (Form event code:C388=On Mouse Up:K2:58)
+			: (Form event code=On Mouse Up)
 				$callback:=$instance_obj.breadCrumb.sectionList[$position].onClickCB
 				  //check section disable
 				If ($position>=0)
-					If (Not:C34($instance_obj.breadCrumb.sectionList[$position].disable))
+					If (Not($instance_obj.breadCrumb.sectionList[$position].disable))
 						
 						Case of 
-							: (Value type:C1509($callback)=Is text:K8:3)
-								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+							: (Value type($callback)=Is text)
+								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False)  //avoids an infinite loop if the draw method recall himself
 									If (AJUI_BC_checkValidCallback ($callback))
-										$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-										If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null:C1517)
-											EXECUTE METHOD:C1007($callback)
+										$instance_obj.breadCrumb.internalUse.inCallback:=True
+										If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null)
+											EXECUTE METHOD($callback)
 										Else 
-											EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onClickCBParams)
+											EXECUTE METHOD($callback;*;$instance_obj.breadCrumb.sectionList[$position].onClickCBParams)
 										End if 
-										$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+										$instance_obj.breadCrumb.internalUse.inCallback:=False
 									End if 
 								End if 
-							: (Value type:C1509($callback)=Is object:K8:27)
-								If ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
-									$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-									If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null:C1517)
+							: (Value type($callback)=Is object)
+								If ($instance_obj.breadCrumb.internalUse.inCallback=False)  //avoids an infinite loop if the draw method recall himself
+									$instance_obj.breadCrumb.internalUse.inCallback:=True
+									If ($instance_obj.breadCrumb.sectionList[$position].onClickCBParams=Null)
 										$callback.call()
 									Else 
-										C_OBJECT:C1216($params)
 										$params:=$instance_obj.breadCrumb.sectionList[$position].onClickCBParams
-										$callback.call(Null:C1517;$params)
+										$callback.call(Null;$params)
 									End if 
-									$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+									$instance_obj.breadCrumb.internalUse.inCallback:=False
 								End if 
 						End case 
 					End if 
 				End if 
 				
-			: (Form event code:C388=On Double Clicked:K2:5)
+			: (Form event code=On Double Clicked)
 				
 				$callback:=$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCB
 				  //check section disable
 				If ($position>=0)
-					If (Not:C34($instance_obj.breadCrumb.sectionList[$position].disable))
+					If (Not($instance_obj.breadCrumb.sectionList[$position].disable))
 						
 						Case of 
-							: (Value type:C1509($callback)=Is text:K8:3)
-								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
+							: (Value type($callback)=Is text)
+								If ($callback#"") & ($instance_obj.breadCrumb.internalUse.inCallback=False)  //avoids an infinite loop if the draw method recall himself
 									If (AJUI_BC_checkValidCallback ($callback))
-										$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-										If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null:C1517)
-											EXECUTE METHOD:C1007($callback)
+										$instance_obj.breadCrumb.internalUse.inCallback:=True
+										If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null)
+											EXECUTE METHOD($callback)
 										Else 
-											EXECUTE METHOD:C1007($callback;*;$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams)
+											EXECUTE METHOD($callback;*;$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams)
 										End if 
-										$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+										$instance_obj.breadCrumb.internalUse.inCallback:=False
 									End if 
 								End if 
-							: (Value type:C1509($callback)=Is object:K8:27)
-								If ($instance_obj.breadCrumb.internalUse.inCallback=False:C215)  //avoids an infinite loop if the draw method recall himself
-									$instance_obj.breadCrumb.internalUse.inCallback:=True:C214
-									If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null:C1517)
+							: (Value type($callback)=Is object)
+								If ($instance_obj.breadCrumb.internalUse.inCallback=False)  //avoids an infinite loop if the draw method recall himself
+									$instance_obj.breadCrumb.internalUse.inCallback:=True
+									If ($instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams=Null)
 										$callback.call()
 									Else 
-										C_OBJECT:C1216($params)
 										$params:=$instance_obj.breadCrumb.sectionList[$position].onDoubleClickCBParams
-										$callback.call(Null:C1517;$params)
+										$callback.call(Null;$params)
 									End if 
-									$instance_obj.breadCrumb.internalUse.inCallback:=False:C215
+									$instance_obj.breadCrumb.internalUse.inCallback:=False
 								End if 
 						End case 
 					End if 

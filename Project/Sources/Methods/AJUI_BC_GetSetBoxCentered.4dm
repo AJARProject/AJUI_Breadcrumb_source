@@ -6,7 +6,9 @@
   //
   // Getter and setter to activate/inactivate the centering of the box
 
-If (False:C215)
+#DECLARE($param1 : Boolean) -> $result : Boolean
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 24.10.19, 16:38:01
@@ -18,10 +20,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_BOOLEAN:C305($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.box.centered
+If (Count parameters=0)
+	$result:=This.breadCrumb.box.centered
 Else 
-	This:C1470.breadCrumb.box.centered:=$1
+	This.breadCrumb.box.centered:=$param1
 End if 

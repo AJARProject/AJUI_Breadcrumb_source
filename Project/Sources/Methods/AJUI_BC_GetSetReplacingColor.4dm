@@ -7,7 +7,12 @@
   //
   // Getter and setter for the replacing color into a SVG picture
 
-If (False:C215)
+#DECLARE($param1 : Text; $param2 : Text) -> $result : Text
+
+var $state; $type : Text
+var $separator_pos : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 15:49:55
@@ -19,29 +24,27 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($0;$1;$2;$state;$type)
-C_LONGINT:C283($separator_pos)
 
-$separator_pos:=Position:C15("-";$1)
-$type:=Substring:C12($1;1;$separator_pos-1)
-$state:=Substring:C12($1;$separator_pos+1)
+$separator_pos:=Position("-";$param1)
+$type:=Substring($param1;1;$separator_pos-1)
+$state:=Substring($param1;$separator_pos+1)
 
 
 
-If (Count parameters:C259=1)
+If (Count parameters=1)
 	Case of 
-		: (This:C1470.breadCrumb.sectionTypes[$type][$state].replacingColor#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes[$type][$state].replacingColor
+		: (This.breadCrumb.sectionTypes[$type][$state].replacingColor#Null)
+			$result:=This.breadCrumb.sectionTypes[$type][$state].replacingColor
 			
-		: (This:C1470.breadCrumb.sectionTypes[$type].default.replacingColor#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes[$type].default.replacingColor
+		: (This.breadCrumb.sectionTypes[$type].default.replacingColor#Null)
+			$result:=This.breadCrumb.sectionTypes[$type].default.replacingColor
 			
-		: (This:C1470.breadCrumb.sectionTypes.standard[$state].replacingColor#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes.standard[$state].replacingColor
+		: (This.breadCrumb.sectionTypes.standard[$state].replacingColor#Null)
+			$result:=This.breadCrumb.sectionTypes.standard[$state].replacingColor
 			
-		: (This:C1470.breadCrumb.sectionTypes.standard.default.replacingColor#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes.standard.default.replacingColor
+		: (This.breadCrumb.sectionTypes.standard.default.replacingColor#Null)
+			$result:=This.breadCrumb.sectionTypes.standard.default.replacingColor
 	End case 
 Else 
-	This:C1470.breadCrumb.sectionTypes[$type][$state].replacingColor:=$2
+	This.breadCrumb.sectionTypes[$type][$state].replacingColor:=$param2
 End if 

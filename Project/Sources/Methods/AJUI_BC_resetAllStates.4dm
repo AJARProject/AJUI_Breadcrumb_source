@@ -4,7 +4,7 @@
   //
   // This method will reset all the states exceptions for each type of an instance
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 23.09.19, 14:06:03
@@ -16,27 +16,29 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-$states_obj:=New object:C1471
-$states_obj.default:=New object:C1471
-$states_obj.hover:=New object:C1471
-$states_obj.active:=New object:C1471
-$states_obj.disable:=New object:C1471
+var $states_obj : Object
 
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes;"first")
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes;"current")
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes;"previous")
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes;"next")
+$states_obj:=New object
+$states_obj.default:=New object
+$states_obj.hover:=New object
+$states_obj.active:=New object
+$states_obj.disable:=New object
 
-This:C1470.breadCrumb.sectionTypes.first:=OB Copy:C1225($states_obj)
-This:C1470.breadCrumb.sectionTypes.current:=OB Copy:C1225($states_obj)
-This:C1470.breadCrumb.sectionTypes.previous:=OB Copy:C1225($states_obj)
-This:C1470.breadCrumb.sectionTypes.next:=OB Copy:C1225($states_obj)
+OB REMOVE(This.breadCrumb.sectionTypes;"first")
+OB REMOVE(This.breadCrumb.sectionTypes;"current")
+OB REMOVE(This.breadCrumb.sectionTypes;"previous")
+OB REMOVE(This.breadCrumb.sectionTypes;"next")
+
+This.breadCrumb.sectionTypes.first:=OB Copy($states_obj)
+This.breadCrumb.sectionTypes.current:=OB Copy($states_obj)
+This.breadCrumb.sectionTypes.previous:=OB Copy($states_obj)
+This.breadCrumb.sectionTypes.next:=OB Copy($states_obj)
 
   //for standard we  don't clean the default state
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes.standard;"hover")
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes.standard;"active")
-OB REMOVE:C1226(This:C1470.breadCrumb.sectionTypes.standard;"disable")
+OB REMOVE(This.breadCrumb.sectionTypes.standard;"hover")
+OB REMOVE(This.breadCrumb.sectionTypes.standard;"active")
+OB REMOVE(This.breadCrumb.sectionTypes.standard;"disable")
 
-This:C1470.breadCrumb.sectionTypes.standard.hover:=New object:C1471
-This:C1470.breadCrumb.sectionTypes.standard.active:=New object:C1471
-This:C1470.breadCrumb.sectionTypes.standard.disable:=New object:C1471
+This.breadCrumb.sectionTypes.standard.hover:=New object
+This.breadCrumb.sectionTypes.standard.active:=New object
+This.breadCrumb.sectionTypes.standard.disable:=New object

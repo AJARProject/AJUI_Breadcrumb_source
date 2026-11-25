@@ -7,7 +7,12 @@
   //
   // Getter and setter for the background color of an section
 
-If (False:C215)
+#DECLARE($param1 : Text; $param2 : Integer) -> $result : Integer
+
+var $state; $type : Text
+var $separator_pos : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 24.10.19, 09:20:58
@@ -19,29 +24,27 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$state;$type)
-C_LONGINT:C283($0;$2;$separator_pos)
 
-$separator_pos:=Position:C15("-";$1)
-$type:=Substring:C12($1;1;$separator_pos-1)
-$state:=Substring:C12($1;$separator_pos+1)
+$separator_pos:=Position("-";$param1)
+$type:=Substring($param1;1;$separator_pos-1)
+$state:=Substring($param1;$separator_pos+1)
 
 
 
-If (Count parameters:C259=1)
+If (Count parameters=1)
 	Case of 
-		: (This:C1470.breadCrumb.sectionTypes[$type][$state].pictureOpacity#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes[$type][$state].pictureOpacity
+		: (This.breadCrumb.sectionTypes[$type][$state].pictureOpacity#Null)
+			$result:=This.breadCrumb.sectionTypes[$type][$state].pictureOpacity
 			
-		: (This:C1470.breadCrumb.sectionTypes[$type].default.pictureOpacity#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes[$type].default.pictureOpacity
+		: (This.breadCrumb.sectionTypes[$type].default.pictureOpacity#Null)
+			$result:=This.breadCrumb.sectionTypes[$type].default.pictureOpacity
 			
-		: (This:C1470.breadCrumb.sectionTypes.standard[$state].pictureOpacity#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes.standard[$state].pictureOpacity
+		: (This.breadCrumb.sectionTypes.standard[$state].pictureOpacity#Null)
+			$result:=This.breadCrumb.sectionTypes.standard[$state].pictureOpacity
 			
-		: (This:C1470.breadCrumb.sectionTypes.standard.default.pictureOpacity#Null:C1517)
-			$0:=This:C1470.breadCrumb.sectionTypes.standard.default.pictureOpacity
+		: (This.breadCrumb.sectionTypes.standard.default.pictureOpacity#Null)
+			$result:=This.breadCrumb.sectionTypes.standard.default.pictureOpacity
 	End case 
 Else 
-	This:C1470.breadCrumb.sectionTypes[$type][$state].pictureOpacity:=$2
+	This.breadCrumb.sectionTypes[$type][$state].pictureOpacity:=$param2
 End if 

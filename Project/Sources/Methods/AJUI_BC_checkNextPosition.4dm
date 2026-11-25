@@ -5,7 +5,11 @@
   //
   // Check the bigger position and return this value and add one to it
 
-If (False:C215)
+#DECLARE() -> $result : Integer
+
+var $nextPosition : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 24.09.19, 13:24:31
@@ -17,12 +21,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($0;$nextPosition)
 
-If (This:C1470.breadCrumb.sectionList.count()=0)
+If (This.breadCrumb.sectionList.count()=0)
 	$nextPosition:=1
 Else 
-	$nextPosition:=This:C1470.breadCrumb.sectionList.max("position")+1
+	$nextPosition:=This.breadCrumb.sectionList.max("position")+1
 End if 
 
-$0:=$nextPosition
+$result:=$nextPosition

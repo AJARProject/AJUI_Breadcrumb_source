@@ -6,7 +6,9 @@
   //
   // Getter and setter to draw/remove the last section arrow (model: arrow)
 
-If (False:C215)
+#DECLARE($param1 : Boolean) -> $result : Boolean
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 23.09.19, 11:47:50
@@ -18,11 +20,10 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_BOOLEAN:C305($1;$0;$arrow)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.arrow.lastSectionWithArrow
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.arrow.lastSectionWithArrow
 Else 
-	This:C1470.breadCrumb.divider.arrow.lastSectionWithArrow:=$1
+	This.breadCrumb.divider.arrow.lastSectionWithArrow:=$param1
 End if 
 

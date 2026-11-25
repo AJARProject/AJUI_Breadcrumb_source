@@ -5,7 +5,11 @@
   //
   // Return a collection to match properties with formulas
 
-If (False:C215)
+#DECLARE() -> $result : Collection
+
+var $properties_col : Collection
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 05.12.19, 09:45:37
@@ -18,21 +22,20 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_COLLECTION:C1488($0;$properties_col)
 
-$properties_col:=New collection:C1472()
-
-
-$properties_col.push(New object:C1471("property";"bgColor";"formula";"SectionBgColor"))
-$properties_col.push(New object:C1471("property";"borderColor";"formula";"SectionBorderColor"))
-$properties_col.push(New object:C1471("property";"borderSize";"formula";"SectionBorderSize"))
-$properties_col.push(New object:C1471("property";"fontColor";"formula";"SectionFontColor"))
-$properties_col.push(New object:C1471("property";"fontName";"formula";"SectionFontName"))
-$properties_col.push(New object:C1471("property";"fontSize";"formula";"SectionFontSize"))
-$properties_col.push(New object:C1471("property";"fontStyle";"formula";"SectionFontStyle"))
-$properties_col.push(New object:C1471("property";"pictureOpacity";"formula";"PictureOpacity"))
-$properties_col.push(New object:C1471("property";"replacingColor";"formula";"ReplacingColor"))
+$properties_col:=New collection()
 
 
+$properties_col.push(New object("property";"bgColor";"formula";"SectionBgColor"))
+$properties_col.push(New object("property";"borderColor";"formula";"SectionBorderColor"))
+$properties_col.push(New object("property";"borderSize";"formula";"SectionBorderSize"))
+$properties_col.push(New object("property";"fontColor";"formula";"SectionFontColor"))
+$properties_col.push(New object("property";"fontName";"formula";"SectionFontName"))
+$properties_col.push(New object("property";"fontSize";"formula";"SectionFontSize"))
+$properties_col.push(New object("property";"fontStyle";"formula";"SectionFontStyle"))
+$properties_col.push(New object("property";"pictureOpacity";"formula";"PictureOpacity"))
+$properties_col.push(New object("property";"replacingColor";"formula";"ReplacingColor"))
 
-$0:=$properties_col
+
+
+$result:=$properties_col

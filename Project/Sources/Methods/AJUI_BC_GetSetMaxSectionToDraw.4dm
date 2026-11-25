@@ -6,7 +6,9 @@
   //
   // Getter and setter to draw the box size dynamically base on the sections do draw
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 10:14:55
@@ -18,12 +20,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.global.maxSectionToDraw
+If (Count parameters=0)
+	$result:=This.breadCrumb.global.maxSectionToDraw
 Else 
-	If ($1>=-1)
-		This:C1470.breadCrumb.global.maxSectionToDraw:=$1
+	If ($param1>=-1)
+		This.breadCrumb.global.maxSectionToDraw:=$param1
 	End if 
 End if 

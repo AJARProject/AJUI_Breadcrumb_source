@@ -6,7 +6,9 @@
   //
   // Getter and setter for the box width
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 14:24:59
@@ -18,10 +20,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.box.width
+If (Count parameters=0)
+	$result:=This.breadCrumb.box.width
 Else 
-	This:C1470.breadCrumb.box.width:=$1
+	This.breadCrumb.box.width:=$param1
 End if 

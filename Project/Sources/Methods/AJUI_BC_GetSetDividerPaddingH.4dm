@@ -6,7 +6,9 @@
   //
   // Getter and setter for the padding horizontal (only for model : arrow)
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 20.09.19, 10:07:39
@@ -18,12 +20,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.arrow.paddingH
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.arrow.paddingH
 Else 
-	If ($1>=0)
-		This:C1470.breadCrumb.divider.arrow.paddingH:=$1
+	If ($param1>=0)
+		This.breadCrumb.divider.arrow.paddingH:=$param1
 	End if 
 End if 

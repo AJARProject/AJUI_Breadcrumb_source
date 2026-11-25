@@ -6,7 +6,9 @@
   //
   // Getter and setter for the color of the arrow used as a divider. (model : arrow)
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 15:17:43
@@ -18,12 +20,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.arrow.color
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.arrow.color
 Else 
 	
-	This:C1470.breadCrumb.divider.arrow.color:=$1
+	This.breadCrumb.divider.arrow.color:=$param1
 	
 End if 

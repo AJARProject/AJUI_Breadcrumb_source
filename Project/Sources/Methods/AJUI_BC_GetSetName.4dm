@@ -6,7 +6,9 @@
   //
   // Getter and Setter for the form object name who will receive the breadcrumb
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 09:11:43
@@ -18,10 +20,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.global.name
+If (Count parameters=0)
+	$result:=This.breadCrumb.global.name
 Else 
-	This:C1470.breadCrumb.global.name:=$1
+	This.breadCrumb.global.name:=$param1
 End if 
