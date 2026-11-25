@@ -6,7 +6,9 @@
   //
   // Getter and setter for the box background color
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 14:26:47
@@ -18,10 +20,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.box.bgColor
+If (Count parameters=0)
+	$result:=This.breadCrumb.box.bgColor
 Else 
-	This:C1470.breadCrumb.box.bgColor:=$1
+	This.breadCrumb.box.bgColor:=$param1
 End if 

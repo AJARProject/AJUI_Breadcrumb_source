@@ -6,7 +6,66 @@
   //
   // This methode will draw a picture based on the properties of the instance with the SVG methods of 4D
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $result : Picture
+
+var $toDraw_obj; $currentSection; $divSize_obj; $section : Object
+var $pict; $pict_section : Picture
+var $model; $bgColor; $boxBorderColor; $image_txt; $arrowColor; $divFontColor; $divFontName; $divFontStyle; $divString : Text
+var $dynamicSize; $rtl; $lastSectionWithArrow; $svgPrevRelativeCoordinate : Boolean
+var $boxWidth; $boxHeight; $cRadiusLeft; $cRadiusRight; $fontSize; $maxSectionToDraw; $LastSectionBorderArrowH; $boxPaddingH; $boxPaddingV; $divFontSize; $divMargin; $boxBorderSize; $arrowBorderSize; $lastArrowWidth; $compensate : Integer
+var $startX; $startY; $pictX; $pictY : Real
+var $nbSections : Integer
+var $counter : Integer
+var $svgAreaX : Integer
+var $svgAreaY : Integer
+var $svgRef : Text
+var $Txt_groupReference_ID : Text
+var $tipTextRectRef_ID : Text
+var $boxRef : Text
+var $currentSectionNumber : Integer
+var $sizeAvailableH : Real
+var $sizeAvailableV : Real
+var $nextElemX : Real
+var $posOpacity : Integer
+var $divFontOpacity : Text
+var $divFontOpacityNum : Real
+var $divPaddingV : Real
+var $style_definition : Text
+var $divID : Text
+var $label : Text
+var $fontName : Text
+var $fontColor : Text
+var $fontStyle : Text
+var $fontOpacity : Text
+var $fontOpacityNum : Real
+var $textPaddingV : Real
+var $nextElemTextX : Real
+var $pictureOpacityText : Text
+var $picturePath : Text
+var $importPath : Text
+var $file : 4D.File
+var $pict_blob : Blob
+var $dom_image : Text
+var $textID : Text
+var $nextElemY : Real
+var $sizeAvailableVWithBorder : Real
+var $currentSectionAreaWidth : Real
+var $sectionBgColor : Text
+var $sectionBorderColor : Text
+var $sectionBorderArrowH : Real
+var $sectionBorderSize : Real
+var $sectCRadiusLeft : Real
+var $sectCRadiusRight : Real
+var $compensateSectionBorderValue : Integer
+var $applyLastItemRadius : Boolean
+var $cRadiusStart : Real
+var $cRadiusEnd : Real
+var $sectionRef : Text
+var $arrowRef : Text
+var $pictureMargin : Real
+var $pictureWidht : Real
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 12.09.19, 14:25:25
@@ -18,17 +77,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$toDraw_obj;$currentSection;$divSize_obj;$section;$arrowSize_obj)
-C_PICTURE:C286($0;$pict;$pict_section)
-C_TEXT:C284($model;$bgColor;$boxBorderColor;$image_txt)
-C_TEXT:C284($arrowColor;$arrowWidhtText;$divFontColor;$divFontName;$divFontStyle;$divString)
-C_BOOLEAN:C305($progress;$dynamicSize;$rtl;$lastSectionWithArrow;$svgPrevRelativeCoordinate)
-C_LONGINT:C283($boxWidth;$boxHeight;$cRadiusLeft;$cRadiusRight;$fontSize;$maxSectionToDraw;$LastSectionBorderArrowH)
-C_LONGINT:C283($boxPaddingH;$boxPaddingV;$divFontSize;$divMargin;$boxBorderSize;$arrowBorderSize;$lastArrowWidth;$compensate)
-C_REAL:C285($startX;$startY;$pictX;$pictY)
 
 
-$toDraw_obj:=$1
+$toDraw_obj:=$param1
 
   //global properties
 $model:=$toDraw_obj.breadCrumb.global.model
@@ -74,7 +125,7 @@ End if
 
   //last section with arrow case
 If ($model="arrow") | ($model="groupedButtons")
-	If (Not:C34($lastSectionWithArrow))
+	If (Not($lastSectionWithArrow))
 		If ($nbSections>0)
 			$toDraw_obj.breadCrumb.sectionList[$nbSections-1].sectionAreaWidth:=$toDraw_obj.breadCrumb.sectionList[$nbSections-1].sectionAreaWidth-$toDraw_obj.breadCrumb.sectionList[$nbSections-1].sectionArrowWidth
 			$toDraw_obj.breadCrumb.sectionList[$nbSections-1].sectionArrowWidth:=0
@@ -126,14 +177,14 @@ $svgAreaY:=$boxHeight+$boxBorderSize
 
 
   //Draw svg
-$svgRef:=DOM Create XML Ref:C861("svg";"http://www.w3.org/2000/svg")
-DOM SET XML ATTRIBUTE:C866($svgRef;"width";$svgAreaX;"height";$svgAreaY)  // svg area
+$svgRef:=DOM Create XML Ref("svg";"http://www.w3.org/2000/svg")
+DOM SET XML ATTRIBUTE($svgRef;"width";$svgAreaX;"height";$svgAreaY)  // svg area
 
 $startX:=0+($boxBorderSize/2)+$cRadiusLeft
 $startY:=0+($boxBorderSize/2)
 
-If (False:C215)  //only for debug
-	$Txt_groupReference_ID:=DOM Create XML element:C865($svgRef;"g";"id";"text1")
+If (False)  //only for debug
+	$Txt_groupReference_ID:=DOM Create XML element($svgRef;"g";"id";"text1")
 	
 	$tipTextRectRef_ID:=SVG_New_rect ($Txt_groupReference_ID;0;0;$svgAreaX;$svgAreaY)
 	SVG_SET_STROKE_DASHARRAY ($tipTextRectRef_ID;2)
@@ -145,16 +196,16 @@ $svgPrevRelativeCoordinate:=(SVG_Get_options  ?? 4)  //Change to relative coordi
 SVG_SET_OPTIONS (SVG_Get_options  ?- 4)  //Change to relative coordinates
 
   //draw svg
-SVG_PATH_LINE_TO ($boxRef;Round:C94($svgAreaX-$cRadiusRight-$cRadiusLeft-$boxBorderSize;0))
+SVG_PATH_LINE_TO ($boxRef;Round($svgAreaX-$cRadiusRight-$cRadiusLeft-$boxBorderSize;0))
 SVG_PATH_ARC ($boxRef;$cRadiusRight;$cRadiusRight;$cRadiusRight;$cRadiusRight)
 
-SVG_PATH_LINE_TO ($boxRef;0;Round:C94($svgAreaY-($cRadiusRight*2)-$boxBorderSize;0))
+SVG_PATH_LINE_TO ($boxRef;0;Round($svgAreaY-($cRadiusRight*2)-$boxBorderSize;0))
 SVG_PATH_ARC ($boxRef;$cRadiusRight;$cRadiusRight;-$cRadiusRight;$cRadiusRight)
 
-SVG_PATH_LINE_TO ($boxRef;Round:C94(-$svgAreaX+$cRadiusRight+$cRadiusLeft+$boxBorderSize;0))
+SVG_PATH_LINE_TO ($boxRef;Round(-$svgAreaX+$cRadiusRight+$cRadiusLeft+$boxBorderSize;0))
 SVG_PATH_ARC ($boxRef;$cRadiusLeft;$cRadiusLeft;-$cRadiusLeft;-$cRadiusLeft)
 
-SVG_PATH_LINE_TO ($boxRef;0;Round:C94(-$svgAreaY+($cRadiusLeft*2)+$boxBorderSize;0))
+SVG_PATH_LINE_TO ($boxRef;0;Round(-$svgAreaY+($cRadiusLeft*2)+$boxBorderSize;0))
 SVG_PATH_ARC ($boxRef;$cRadiusLeft;$cRadiusLeft;$cRadiusLeft;-$cRadiusLeft)
 
 SVG_PATH_CLOSE ($boxRef)
@@ -174,15 +225,15 @@ If ($nbSections>0)
 		: ($model="simple")  //model simple
 			Repeat 
 				  //add divider
-				If (Not:C34($currentSectionNumber=1)) & (Not:C34($currentSectionNumber>$nbSections))
+				If (Not($currentSectionNumber=1)) & (Not($currentSectionNumber>$nbSections))
 					If (($toDraw_obj.breadCrumb.sectionList[$currentSectionNumber-1].sectionAreaWidth+$divSize_obj.width)<=$sizeAvailableH)
 						
-						$posOpacity:=Position:C15(":";$divFontColor)
+						$posOpacity:=Position(":";$divFontColor)
 						If ($posOpacity>0)
-							$divFontOpacity:=Delete string:C232($divFontColor;0;$posOpacity)
-							$divFontColor:=Delete string:C232($divFontColor;$posOpacity;Length:C16($divFontColor))
-							$divFontOpacityNum:=Num:C11($divFontOpacity)/100
-							$divFontOpacity:=String:C10($divFontOpacityNum)
+							$divFontOpacity:=Delete string($divFontColor;0;$posOpacity)
+							$divFontColor:=Delete string($divFontColor;$posOpacity;Length($divFontColor))
+							$divFontOpacityNum:=Num($divFontOpacity)/100
+							$divFontOpacity:=String($divFontOpacityNum)
 						Else 
 							$divFontOpacity:="1"
 						End if 
@@ -199,12 +250,12 @@ If ($nbSections>0)
 						End if 
 						
 						  //draw divider
-						$style_definition:="{font-size:"+String:C10($divFontSize)+";fill:"+$divFontColor+";font-family:"+$divFontName+";fill-opacity:"+$divFontOpacity+";text-align:center}"
+						$style_definition:="{font-size:"+String($divFontSize)+";fill:"+$divFontColor+";font-family:"+$divFontName+";fill-opacity:"+$divFontOpacity+";text-align:center}"
 						$divID:=SVG_New_textArea ($svgRef;$divString;$nextElemX;$divPaddingV;$divSize_obj.width;$divSize_obj.height;$style_definition)
 						SVG_SET_FONT_STYLE ($divID;Utl_fontStyle2Constant ($divFontStyle))
 						
 						
-						If (Not:C34($rtl))
+						If (Not($rtl))
 							$nextElemX:=$nextElemX+$divSize_obj.width
 						End if 
 						
@@ -224,12 +275,12 @@ If ($nbSections>0)
 					$fontColor:=$currentSection.currentState.fontColor
 					$fontStyle:=$currentSection.currentState.fontStyle
 					
-					$posOpacity:=Position:C15(":";$fontColor)
+					$posOpacity:=Position(":";$fontColor)
 					If ($posOpacity>0)
-						$fontOpacity:=Delete string:C232($fontColor;0;$posOpacity)
-						$fontColor:=Delete string:C232($fontColor;$posOpacity;Length:C16($fontColor))
-						$fontOpacityNum:=Num:C11($fontOpacity)/100
-						$fontOpacity:=String:C10($fontOpacityNum)
+						$fontOpacity:=Delete string($fontColor;0;$posOpacity)
+						$fontColor:=Delete string($fontColor;$posOpacity;Length($fontColor))
+						$fontOpacityNum:=Num($fontOpacity)/100
+						$fontOpacity:=String($fontOpacityNum)
 					Else 
 						$fontOpacity:="1"
 					End if 
@@ -261,33 +312,33 @@ If ($nbSections>0)
 								$pictX:=$nextElemTextX+$currentSection.sectionAreaWidth-$currentSection.pictureWidht
 						End case 
 						
-						$pictureOpacityText:=String:C10($currentSection.currentState.pictureOpacity)+"%"
+						$pictureOpacityText:=String($currentSection.currentState.pictureOpacity)+"%"
 						
 						$pictY:=($svgAreaY/2)-($currentSection.pictureHeight/2)
 						
 						$picturePath:=$currentSection.picturePath
 						
-						$importPath:=String:C10($toDraw_obj.breadCrumb.global.importPath)
+						$importPath:=String($toDraw_obj.breadCrumb.global.importPath)
 						If ($picturePath="#@")
 							If ($importPath="")
-								$picturePath:=Replace string:C233($picturePath;"#";Get 4D folder:C485(Current resources folder:K5:16;*))
+								$picturePath:=Replace string($picturePath;"#";Get 4D folder(Current resources folder;*))
 							Else 
-								$picturePath:=Replace string:C233($picturePath;"#";$importPath)
+								$picturePath:=Replace string($picturePath;"#";$importPath)
 							End if 
 						Else 
-							$picturePath:=Get 4D folder:C485(Current resources folder:K5:16;*)+$picturePath
+							$picturePath:=Get 4D folder(Current resources folder;*)+$picturePath
 						End if 
 						
-						$picturePath:=Replace string:C233($picturePath;"/";Folder separator:K24:12)
+						$picturePath:=Replace string($picturePath;"/";Folder separator)
 						
-						$file:=File:C1566($picturePath;fk platform path:K87:2)
+						$file:=File($picturePath;fk platform path)
 						$pict_section:=$currentSection.picture
-						PICTURE TO BLOB:C692($pict_section;$pict_blob;$file.extension)
-						BASE64 ENCODE:C895($pict_blob;$image_txt)
+						PICTURE TO BLOB($pict_section;$pict_blob;$file.extension)
+						BASE64 ENCODE($pict_blob;$image_txt)
 						$image_txt:="data:image/svg+xml;base64,"+$image_txt
 						
 						  //add picture to SVG
-						$dom_image:=DOM Create XML element:C865($svgRef;"image";\
+						$dom_image:=DOM Create XML element($svgRef;"image";\
 							"xlink:href";$image_txt;\
 							"opacity";$pictureOpacityText;\
 							"x";$pictX;\
@@ -298,7 +349,7 @@ If ($nbSections>0)
 						
 						  //draw text area
 						If ($label#"")
-							$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+							$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 							$textID:=SVG_New_textArea ($svgRef;$label;$nextElemTextX;$textPaddingV;$currentSection.sectionAreaWidth-$currentSection.pictureWidht-$currentSection.pictureMargin;$currentSection.sectionAreaHeight;$style_definition)
 							SVG_SET_ID ($dom_image;$currentSection.id+"_AJUI_BC_bindedPicture")
 							
@@ -308,7 +359,7 @@ If ($nbSections>0)
 						
 					Else 
 						  //draw text area
-						$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+						$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 						$textID:=SVG_New_textArea ($svgRef;$label;$nextElemX;$textPaddingV;$currentSection.sectionAreaWidth;$currentSection.sectionAreaHeight;$style_definition)
 						
 						SVG_SET_FONT_STYLE ($textID;Utl_fontStyle2Constant ($fontStyle))
@@ -318,7 +369,7 @@ If ($nbSections>0)
 					
 					
 					  //calculate nextElement and size available
-					If (Not:C34($rtl))
+					If (Not($rtl))
 						$nextElemX:=$nextElemX+$currentSection.sectionAreaWidth
 					End if 
 					
@@ -387,10 +438,10 @@ If ($nbSections>0)
 					
 					
 					
-					If ($nbSections=$currentSectionNumber) & (Not:C34($lastSectionWithArrow))  //check last item corner radius
-						$applyLastItemRadius:=True:C214
+					If ($nbSections=$currentSectionNumber) & (Not($lastSectionWithArrow))  //check last item corner radius
+						$applyLastItemRadius:=True
 					Else 
-						$applyLastItemRadius:=False:C215
+						$applyLastItemRadius:=False
 					End if 
 					
 					
@@ -404,7 +455,7 @@ If ($nbSections>0)
 								$cRadiusEnd:=$sectCRadiusRight
 							End if 
 							
-						: ($currentSectionNumber=1) & (Not:C34($applyLastItemRadius))
+						: ($currentSectionNumber=1) & (Not($applyLastItemRadius))
 							If ($rtl)
 								$cRadiusStart:=$sectCRadiusRight
 							Else 
@@ -494,7 +545,7 @@ If ($nbSections>0)
 					
 					
 					  //draw arrow divider
-					If (Not:C34($lastSectionWithArrow)) & ($currentSectionNumber=$nbSections)
+					If (Not($lastSectionWithArrow)) & ($currentSectionNumber=$nbSections)
 						  //do nothing
 					Else 
 						
@@ -548,12 +599,12 @@ If ($nbSections>0)
 					
 					
 					  //text area
-					$posOpacity:=Position:C15(":";$fontColor)
+					$posOpacity:=Position(":";$fontColor)
 					If ($posOpacity>0)
-						$fontOpacity:=Delete string:C232($fontColor;0;$posOpacity)
-						$fontColor:=Delete string:C232($fontColor;$posOpacity;Length:C16($fontColor))
-						$fontOpacityNum:=Num:C11($fontOpacity)/100
-						$fontOpacity:=String:C10($fontOpacityNum)
+						$fontOpacity:=Delete string($fontColor;0;$posOpacity)
+						$fontColor:=Delete string($fontColor;$posOpacity;Length($fontColor))
+						$fontOpacityNum:=Num($fontOpacity)/100
+						$fontOpacity:=String($fontOpacityNum)
 					Else 
 						$fontOpacity:="1"
 					End if 
@@ -594,7 +645,7 @@ If ($nbSections>0)
 									$pictX:=$pictX+($lastArrowWidth/2)
 								End if 
 							: ($currentSection.picturePosition="left")
-								If ($currentSectionNumber>1) & (Not:C34($rtl))
+								If ($currentSectionNumber>1) & (Not($rtl))
 									$pictX:=$nextElemTextX+($toDraw_obj.breadCrumb.divider.arrow.paddingH)+$lastArrowWidth
 								Else 
 									$pictX:=$nextElemTextX+$toDraw_obj.breadCrumb.divider.arrow.paddingH
@@ -606,31 +657,31 @@ If ($nbSections>0)
 						
 						$pictY:=($svgAreaY/2)-($currentSection.pictureHeight/2)
 						
-						$pictureOpacityText:=String:C10($currentSection.currentState.pictureOpacity)+"%"
+						$pictureOpacityText:=String($currentSection.currentState.pictureOpacity)+"%"
 						
 						$picturePath:=$currentSection.picturePath
 						
-						$importPath:=String:C10($toDraw_obj.breadCrumb.global.importPath)
+						$importPath:=String($toDraw_obj.breadCrumb.global.importPath)
 						If ($picturePath="#@")
 							If ($importPath="")
-								$picturePath:=Replace string:C233($picturePath;"#";Get 4D folder:C485(Current resources folder:K5:16;*))
+								$picturePath:=Replace string($picturePath;"#";Get 4D folder(Current resources folder;*))
 							Else 
-								$picturePath:=Replace string:C233($picturePath;"#";$importPath)
+								$picturePath:=Replace string($picturePath;"#";$importPath)
 							End if 
 						Else 
-							$picturePath:=Get 4D folder:C485(Current resources folder:K5:16;*)+$picturePath
+							$picturePath:=Get 4D folder(Current resources folder;*)+$picturePath
 						End if 
 						
-						$picturePath:=Replace string:C233($picturePath;"/";Folder separator:K24:12)
+						$picturePath:=Replace string($picturePath;"/";Folder separator)
 						
-						$file:=File:C1566($picturePath;fk platform path:K87:2)
+						$file:=File($picturePath;fk platform path)
 						$pict_section:=$currentSection.picture
-						PICTURE TO BLOB:C692($pict_section;$pict_blob;$file.extension)
-						BASE64 ENCODE:C895($pict_blob;$image_txt)
+						PICTURE TO BLOB($pict_section;$pict_blob;$file.extension)
+						BASE64 ENCODE($pict_blob;$image_txt)
 						$image_txt:="data:image/svg+xml;base64,"+$image_txt
 						
 						  //add picture to SVG
-						$dom_image:=DOM Create XML element:C865($svgRef;"image";\
+						$dom_image:=DOM Create XML element($svgRef;"image";\
 							"xlink:href";$image_txt;\
 							"opacity";$pictureOpacityText;\
 							"x";$pictX;\
@@ -640,7 +691,7 @@ If ($nbSections>0)
 						
 						  //draw text area
 						If ($label#"")
-							$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+							$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 							If ($currentSectionNumber=1)
 								$textID:=SVG_New_textArea ($svgRef;$label;$nextElemTextX;$textPaddingV;$currentSectionAreaWidth-$currentSection.sectionArrowWidth-$pictureWidht-$pictureMargin;$currentSection.sectionAreaHeight;$style_definition)
 							Else 
@@ -658,7 +709,7 @@ If ($nbSections>0)
 						
 						
 						  //draw text area only
-						$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+						$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 						If ($currentSectionNumber=1)
 							$textID:=SVG_New_textArea ($svgRef;$label;$nextElemX;$textPaddingV;$currentSectionAreaWidth-$currentSection.sectionArrowWidth;$currentSection.sectionAreaHeight;$style_definition)
 						Else 
@@ -716,7 +767,7 @@ End if
 
 
   //for testing purpose
-If (False:C215)
+If (False)
 	SVGTool_SHOW_IN_VIEWER ($svgRef)
 End if 
 
@@ -728,4 +779,4 @@ End if
 $pict:=SVG_Export_to_picture ($svgRef)
 SVG_CLEAR ($svgRef)
 
-$0:=$pict
+$result:=$pict

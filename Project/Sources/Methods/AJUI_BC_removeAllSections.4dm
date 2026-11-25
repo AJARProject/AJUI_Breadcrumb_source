@@ -4,7 +4,7 @@
   //
   // This method removes all the sections
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 09.10.19, 14:31:29
@@ -16,4 +16,4 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-This:C1470.breadCrumb.sectionList.remove(0;This:C1470.breadCrumb.sectionList.count())
+This.breadCrumb.sectionList.remove(0;This.breadCrumb.sectionList.count())

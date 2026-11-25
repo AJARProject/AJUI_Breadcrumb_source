@@ -6,7 +6,9 @@
   //
   // Getter and setter for the string to use as a divider
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 15:15:30
@@ -18,10 +20,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.divider.string
+If (Count parameters=0)
+	$result:=This.breadCrumb.divider.string
 Else 
-	This:C1470.breadCrumb.divider.string:=$1
+	This.breadCrumb.divider.string:=$param1
 End if 

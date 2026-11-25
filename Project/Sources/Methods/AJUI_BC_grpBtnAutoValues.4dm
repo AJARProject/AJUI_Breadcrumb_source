@@ -5,7 +5,11 @@
   //
   // This method set the automatic values for the grouped buttons model
 
-If (False:C215)
+#DECLARE($param1 : Object)
+
+var $instance_obj; $section : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 07.01.20, 15:31:57
@@ -17,20 +21,19 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$instance_obj;$section)
 
-$instance_obj:=$1
+$instance_obj:=$param1
 
   //set automatic values
-$instance_obj.breadCrumb.box.dynamicSize:=True:C214
+$instance_obj.breadCrumb.box.dynamicSize:=True
 $instance_obj.breadCrumb.box.bgColor:=$instance_obj.breadCrumb.box.border.color
 $instance_obj.breadCrumb.divider.margin:=$instance_obj.breadCrumb.box.border.size
 $instance_obj.breadCrumb.box.padding.horizontal:=0
 $instance_obj.breadCrumb.box.padding.vertical:=0
 $instance_obj.breadCrumb.divider.arrow.width:="0%"
 $instance_obj.breadCrumb.divider.arrow.borderSize:=0
-$instance_obj.breadCrumb.divider.arrow.lastSectionWithArrow:=False:C215
-$instance_obj.breadCrumb.divider.arrow.firstSectionWithArrow:=False:C215
+$instance_obj.breadCrumb.divider.arrow.lastSectionWithArrow:=False
+$instance_obj.breadCrumb.divider.arrow.firstSectionWithArrow:=False
 
   //put section to standard type except for section related to the ID (current type)
 For each ($section;$instance_obj.breadCrumb.sectionList)

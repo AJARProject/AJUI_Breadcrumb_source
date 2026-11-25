@@ -11,50 +11,61 @@
 // ----------------------------------------------------
 // Copyrights (C) AJAR SA - 2019
 
-C_TEXT:C284($projectMethodPath_t)  // text variables
-C_TEXT:C284($code_t)
-C_TEXT:C284($1; $method)
-$method:=$1
+#DECLARE($param1 : Text)
 
-$projectMethodPath_t:=METHOD Get path:C1164(Path project method:K72:1; $method; *)
-METHOD GET CODE:C1190($projectMethodPath_t; $code_t; *)  // code of the method "tip_release"
+var $projectMethodPath_t; $code_t; $method : Text
+var $positionStart_l : Integer
+var $positionEnd_l : Integer
+var $previousReleaseNumber_t : Text
+var $buildRelease_t0 : Text
+var $positionStartNumber_l : Integer
+var $lengthNumber_l : Integer
+var $buildRelease_t : Text
+var $buildRelease_l : Real
+var $releaseNumber_t : Text
+var $path_t : Text
 
-$positionStart_l:=Position:C15("$version_t:="; $code_t)
-$positionStart_l:=Position:C15("\""; $code_t; $positionStart_l+1)
-$positionEnd_l:=Position:C15("GMT\r"; $code_t; $positionStart_l+1)-$positionStart_l
+$method:=$param1
 
-$previousReleaseNumber_t:=Substring:C12($code_t; $positionStart_l; $positionEnd_l+3)  // "1.0.0+Build52017"  // 2016-02-01T23:00:00Z
+$projectMethodPath_t:=METHOD Get path(Path project method; $method; *)
+METHOD GET CODE($projectMethodPath_t; $code_t; *)  // code of the method "tip_release"
 
+$positionStart_l:=Position("$version_t:="; $code_t)
+$positionStart_l:=Position("\""; $code_t; $positionStart_l+1)
+$positionEnd_l:=Position("GMT\r"; $code_t; $positionStart_l+1)-$positionStart_l
 
-$buildRelease_t0:=Substring:C12($previousReleaseNumber_t; Position:C15("+Build"; $previousReleaseNumber_t))  //+Build52017"  // 2016-02-01T23:00:00Z
-$positionStartNumber_l:=Position:C15("d"; $buildRelease_t0)
-$lengthNumber_l:=Position:C15("\""; $buildRelease_t0)-$positionStartNumber_l
-$buildRelease_t:=Substring:C12($buildRelease_t0; $positionStartNumber_l+1; $lengthNumber_l)
-$buildRelease_l:=Num:C11(Replace string:C233($buildRelease_t; "+Build"; ""))+1
-
-
-$releaseNumber_t:=Substring:C12($previousReleaseNumber_t; 1; Position:C15("+Build"; $previousReleaseNumber_t)-1)  //1.0.0
-$releaseNumber_t:=$releaseNumber_t+"+Build"+String:C10($buildRelease_l)  // 1.0.0+Build32
-$releaseNumber_t:=$releaseNumber_t+"\""+"// "+String:C10(Current date:C33; Date RFC 1123:K1:11; Current time:C178)  //
-
-$code_t:=Replace string:C233($code_t; $previousReleaseNumber_t; $releaseNumber_t)
+$previousReleaseNumber_t:=Substring($code_t; $positionStart_l; $positionEnd_l+3)  // "1.0.0+Build52017"  // 2016-02-01T23:00:00Z
 
 
-METHOD SET CODE:C1194($projectMethodPath_t; $code_t; *)
+$buildRelease_t0:=Substring($previousReleaseNumber_t; Position("+Build"; $previousReleaseNumber_t))  //+Build52017"  // 2016-02-01T23:00:00Z
+$positionStartNumber_l:=Position("d"; $buildRelease_t0)
+$lengthNumber_l:=Position("\""; $buildRelease_t0)-$positionStartNumber_l
+$buildRelease_t:=Substring($buildRelease_t0; $positionStartNumber_l+1; $lengthNumber_l)
+$buildRelease_l:=Num(Replace string($buildRelease_t; "+Build"; ""))+1
 
 
-If (Application type:C494=4D Remote mode:K5:5)
+$releaseNumber_t:=Substring($previousReleaseNumber_t; 1; Position("+Build"; $previousReleaseNumber_t)-1)  //1.0.0
+$releaseNumber_t:=$releaseNumber_t+"+Build"+String($buildRelease_l)  // 1.0.0+Build32
+$releaseNumber_t:=$releaseNumber_t+"\""+"// "+String(Current date; Date RFC 1123; Current time)  //
+
+$code_t:=Replace string($code_t; $previousReleaseNumber_t; $releaseNumber_t)
+
+
+METHOD SET CODE($projectMethodPath_t; $code_t; *)
+
+
+If (Application type=4D Remote mode)
 	
 Else 
-	$path_t:=Get 4D folder:C485(Database folder:K5:14; *)+"Settings"+Folder separator:K24:12+"buildApp.4DSettings"
-	BUILD APPLICATION:C871($path_t)
+	$path_t:=Get 4D folder(Database folder; *)+"Settings"+Folder separator+"buildApp.4DSettings"
+	BUILD APPLICATION($path_t)
 End if 
 
 
 
 If (OK=1)
-	ALERT:C41("Build OK")
+	ALERT("Build OK")
 End if 
 
-BEEP:C151
+BEEP
 

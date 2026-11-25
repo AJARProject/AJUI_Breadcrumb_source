@@ -5,7 +5,12 @@
   //
   // This methode remove the section related to the id from the section list
 
-If (False:C215)
+#DECLARE($param1 : Text)
+
+var $id : Text
+var $pos : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 13.09.19, 15:20:10
@@ -17,14 +22,12 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$id)
-C_LONGINT:C283($pos)
 
-$id:=$1
-$pos:=This:C1470.breadCrumb.sectionList.extract("id").indexOf($id)
+$id:=$param1
+$pos:=This.breadCrumb.sectionList.extract("id").indexOf($id)
 
 If ($pos>=0)
-	This:C1470.breadCrumb.sectionList.remove($pos)
-	This:C1470.breadCrumb.sectionList:=This:C1470.breadCrumb.sectionList.orderBy("position asc")
+	This.breadCrumb.sectionList.remove($pos)
+	This.breadCrumb.sectionList:=This.breadCrumb.sectionList.orderBy("position asc")
 End if 
 

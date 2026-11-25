@@ -6,7 +6,9 @@
   //
   // Getter and setter for the breadcrumb model to use
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 09:18:10
@@ -19,10 +21,9 @@ If (False:C215)
 End if 
 
 
-C_TEXT:C284($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.global.model
+If (Count parameters=0)
+	$result:=This.breadCrumb.global.model
 Else 
-	This:C1470.breadCrumb.global.model:=$1
+	This.breadCrumb.global.model:=$param1
 End if 

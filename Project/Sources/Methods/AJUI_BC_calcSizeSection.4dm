@@ -9,7 +9,25 @@
   //
   // This method will calculate the size of a section
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Text; $param3 : Integer; $param4 : Integer; $param5 : Boolean)
+
+var $section : Object
+var $fontSize; $arrowWidth; $maxHeight : Integer
+var $label : Text
+var $fontName : Text
+var $fontColor : Text
+var $fontStyle : Text
+var $posOpacity : Integer
+var $fontOpacity : Text
+var $fontOpacityNum : Real
+var $svgCalcRef : Text
+var $style_definition : Text
+var $textCalcID : Text
+var $pict : Picture
+var $width : Integer
+var $height : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 16.09.19, 14:57:35
@@ -21,14 +39,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$section;$pict_obj)
-C_TEXT:C284($2)
-C_LONGINT:C283($3;$4;$fontSize;$arrowWidth;$maxHeight)
-C_BOOLEAN:C305($5)
-C_PICTURE:C286($picture)
 
 
-$section:=$1
+$section:=$param1
 
   //text
 $label:=$section.label
@@ -38,48 +51,48 @@ $fontColor:=$section.currentState.fontColor
 $fontStyle:=$section.currentState.fontStyle
 
 
-$posOpacity:=Position:C15(":";$fontColor)
+$posOpacity:=Position(":";$fontColor)
 If ($posOpacity>0)
-	$fontOpacity:=Delete string:C232($fontColor;0;$posOpacity)
-	$fontColor:=Delete string:C232($fontColor;$posOpacity;Length:C16($fontColor))
-	$fontOpacityNum:=Num:C11($fontOpacity)/100
-	$fontOpacity:=String:C10($fontOpacityNum)
+	$fontOpacity:=Delete string($fontColor;0;$posOpacity)
+	$fontColor:=Delete string($fontColor;$posOpacity;Length($fontColor))
+	$fontOpacityNum:=Num($fontOpacity)/100
+	$fontOpacity:=String($fontOpacityNum)
 Else 
 	$fontOpacity:="1"
 End if 
 
   //text size calculation
 $svgCalcRef:=SVG_New 
-$style_definition:="{font-size:"+String:C10($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
+$style_definition:="{font-size:"+String($fontSize)+";fill:"+$fontColor+";font-family:"+$fontName+";fill-opacity:"+$fontOpacity+";text-align:center}"
 $textCalcID:=SVG_New_textArea ($svgCalcRef;$label;0;0;0;0;$style_definition)
 SVG_SET_FONT_STYLE ($svgCalcRef;Utl_fontStyle2Constant ($fontStyle))
 
   //debug only
-If (False:C215)
+If (False)
 	SVGTool_SHOW_IN_VIEWER ($svgCalcRef)
 End if 
 
 $pict:=SVG_Export_to_picture ($svgCalcRef)
-PICTURE PROPERTIES:C457($pict;$width;$height)
+PICTURE PROPERTIES($pict;$width;$height)
 
 SVG_CLEAR ($svgCalcRef)
 
   //add arrow width
-If (Count parameters:C259>1)
-	$width:=$width+($3*2)  //add paddingH
-	$maxHeight:=$4
+If (Count parameters>1)
+	$width:=$width+($param3*2)  //add paddingH
+	$maxHeight:=$param4
 	
 	
 	
-	If ($5)
+	If ($param5)
 		  //value in pixel
-		If ($2="@px")
-			$arrowWidth:=Num:C11(Replace string:C233($2;"px";""))
+		If ($param2="@px")
+			$arrowWidth:=Num(Replace string($param2;"px";""))
 		End if 
 		
 		  //value in percent
-		If ($2="@%")
-			$arrowWidth:=Round:C94($maxHeight*Num:C11(Replace string:C233($2;"%";""))/100;0)
+		If ($param2="@%")
+			$arrowWidth:=Round($maxHeight*Num(Replace string($param2;"%";""))/100;0)
 		End if 
 	Else 
 		$arrowWidth:=0

@@ -6,7 +6,9 @@
   //
   // Getter and setter for the padding vertical of the box
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 14:48:42
@@ -18,13 +20,12 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
+If (Count parameters=0)
 	
-	$0:=This:C1470.breadCrumb.box.padding.vertical
+	$result:=This.breadCrumb.box.padding.vertical
 Else 
-	If ($1>=0)
-		This:C1470.breadCrumb.box.padding.vertical:=$1
+	If ($param1>=0)
+		This.breadCrumb.box.padding.vertical:=$param1
 	End if 
 End if 

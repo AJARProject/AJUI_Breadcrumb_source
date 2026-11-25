@@ -6,7 +6,9 @@
   //
   // Getter and setter for the radius of the left corners of the box
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $result : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 18.09.19, 14:34:24
@@ -18,12 +20,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$0)
 
-If (Count parameters:C259=0)
-	$0:=This:C1470.breadCrumb.box.cornerRadius.left
+If (Count parameters=0)
+	$result:=This.breadCrumb.box.cornerRadius.left
 Else 
-	If ($1>=0)
-		This:C1470.breadCrumb.box.cornerRadius.left:=$1
+	If ($param1>=0)
+		This.breadCrumb.box.cornerRadius.left:=$param1
 	End if 
 End if 

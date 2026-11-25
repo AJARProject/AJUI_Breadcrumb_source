@@ -6,7 +6,12 @@
   //
   // This method will return the value of the constant linked to the font style
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $result : Integer
+
+var $fontStyleText; $substring : Text
+var $fontStyleLongint; $position : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 16.09.19, 15:11:40
@@ -18,18 +23,16 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_TEXT:C284($1;$fontStyleText;$substring)
-C_LONGINT:C283($0;$fontStyleLongint;$position)
-$fontStyleText:=$1
+$fontStyleText:=$param1
 
 Repeat 
-	$position:=Position:C15(",";$fontStyleText)
+	$position:=Position(",";$fontStyleText)
 	
 	If ($position<=0)
 		$substring:=$fontStyleText
 	Else 
-		$substring:=Substring:C12($fontStyleText;1;$position-1)
-		$fontStyleText:=Delete string:C232($fontStyleText;1;$position)
+		$substring:=Substring($fontStyleText;1;$position-1)
+		$fontStyleText:=Delete string($fontStyleText;1;$position)
 	End if 
 	
 	Case of 
@@ -48,4 +51,4 @@ Repeat
 	End case 
 Until ($position<=0)
 
-$0:=$fontStyleLongint
+$result:=$fontStyleLongint
