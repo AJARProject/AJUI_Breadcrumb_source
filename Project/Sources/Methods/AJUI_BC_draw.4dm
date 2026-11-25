@@ -48,7 +48,7 @@ OBJECT GET COORDINATES(*;$name;$left;$top;$right;$bottom)
   //check if the current object and the name is the same
 If ($currentFormObj=$name)
 	
-	GET MOUSE($mouseX;$mouseY;$state)
+	MOUSE POSITION($mouseX;$mouseY;$state)
 	CONVERT COORDINATES($mouseX;$mouseY;XY Current window;XY Current form)
 	$mouseX:=$mouseX-$left
 	$mouseY:=$mouseY-$top
@@ -171,7 +171,7 @@ If (Not($skip))  //dont redraw if skip
 					$section.currentState:=AJUI_BC_mergeStates ($toDraw_obj.breadCrumb.sectionTypes;"default";$sectionType)
 					
 				: (Form event code=On Mouse Up)  //state default
-					GET MOUSE($mouseX;$mouseY;$state)
+					MOUSE POSITION($mouseX;$mouseY;$state)
 					CONVERT COORDINATES($mouseX;$mouseY;XY Current window;XY Current form)
 					
 					OBJECT GET COORDINATES(*;$name;$left;$top;$right;$bottom)
