@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="4">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="6">
 	<com.4d>
 		<deployment>
 			<options/>
 		</deployment>
+		<compiler>
+			<typage default_for_numeric="1"/>
+			<options compilation_path="3" error_file="true" fat_binary="true" symbol_file="true" syntax_file="true" target="all"/>
+		</compiler>
 		<server>
 			<network>
 				<client_server use_encryption="false"/>
 			</network>
 		</server>
-		<compiler>
-			<options target="all"/>
-		</compiler>
 	</com.4d>
 </preferences>

@@ -2,6 +2,8 @@
 /*.docx
 *.4darchive
 *BuildApp*
+# ...but keep the component build settings (macOS matches *BuildApp* case-insensitively)
+!/Settings/buildApp.4DSettings
 */Preferences/*
 Cache.xml
 Conversion*.json
@@ -19,9 +21,11 @@ userPreferences.*
 /Logs/*
 /Project/DerivedData/*
 /Project/BuildSettings/*
-/Settings/*
+# Settings/buildApp.4DSettings is versioned (4D 21 R4 component build settings)
 /userPreferences*/*
 /Builds/*
+# component built by AJUI_BuildComponent / BUILD APPLICATION
+/Components/AJUI_BreadCrumb.4dbase/
 Libraries/*
 
 # Don't need the data file, indexes, symbols, or journal
@@ -35,8 +39,8 @@ Libraries/*
 # dont need the 4d info component folder_reports
 Folder_Reports
 
-# include the following if you want to ignore the database settings
-*.4DSettings
+# *.4DSettings is no longer ignored: Settings/buildApp.4DSettings and
+# Project/Sources/settings.4DSettings are versioned
 
 # OS generated files #
 ######################
